@@ -286,27 +286,28 @@ body {
   font-size: 13px;
   font-weight: 600;
   transition: 0.2s ease;
-  color: white;
+  color: var(--text-primary);
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
 }
 
 .social-btn:hover {
   transform: translateY(-2px);
+  border-color: var(--yellow);
 }
 
 .facebook {
-  background: #1877F2;
+  background: linear-gradient(90deg, var(--black), #2c2c2c);
+  color: var(--yellow);
 }
 
 .instagram {
-  background: linear-gradient(
-    45deg,
-    #F58529,
-    #DD2A7B,
-    #8134AF,
-    #515BD4
-  );
+  background: var(--yellow);
+  color: var(--black);
 }
 
 .whatsapp {
-  background: #25D366;
+  background: var(--surface-alt);
+  color: var(--text-primary);
+  border-left: 4px solid var(--yellow);
 }
