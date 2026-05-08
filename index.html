@@ -3,131 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resortes de León — Dashboard</title>
+  <title>Dashboard Resortes de León</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 </head>
-<body>
-<header class="hdr">
-<div class="hdr-icon">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="12" cy="12" r="3"/>
-<path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
-</svg>
-</div>
 
-<div>
-<div class="hdr-title">Análisis Redes Sociales Resortes de León</div>
-<div class="hdr-sub">Ventas · Mayo 2025 – Abril 2026</div>
-</div>
+<body>
+
+<header class="hdr">
+
+  <div class="hdr-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2">
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+  </div>
+
+  <div>
+    <div class="hdr-title">
+      Análisis Redes Sociales Resortes de León
+    </div>
+
+    <div class="hdr-sub">
+      Ventas · Mayo 2025 – Abril 2026
+    </div>
+  </div>
+
 </header>
 
 <section class="metrics">
-<div class="metric">
-<div class="metric-label">Ventas totales</div>
-<div class="metric-value">Q1.15M</div>
-<div class="metric-sub">Acumulado</div>
-</div>
 
-<div class="metric">
-<div class="metric-label">Unidades</div>
-<div class="metric-value">314,941</div>
-<div class="metric-sub">Piezas vendidas</div>
-</div>
+  <div class="metric">
+    <div class="metric-label">Ventas totales</div>
+    <div class="metric-value">Q1.15M</div>
+    <div class="metric-sub">Acumulado</div>
+  </div>
 
-<div class="metric">
-<div class="metric-label">Mejor mes</div>
-<div class="metric-value">Abr 2026</div>
-<div class="metric-sub">Q249,700</div>
-</div>
+  <div class="metric">
+    <div class="metric-label">Unidades</div>
+    <div class="metric-value">314,941</div>
+    <div class="metric-sub">Piezas vendidas</div>
+  </div>
 
-<div class="metric">
-<div class="metric-label">Empresas</div>
-<div class="metric-value">2</div>
-<div class="metric-sub">RECESA · REDELSA</div>
-</div>
+  <div class="metric">
+    <div class="metric-label">Mejor mes</div>
+    <div class="metric-value">Abr 2026</div>
+    <div class="metric-sub">Q249,700</div>
+  </div>
+
+  <div class="metric">
+    <div class="metric-label">Empresas</div>
+    <div class="metric-value">2</div>
+    <div class="metric-sub">RECESA · REDELSA</div>
+  </div>
+
 </section>
 
+<!-- Filtro -->
 <div class="card">
-<div class="card-title">Ventas mensuales</div>
-<div class="card-sub">Evolución mayo 2025 – abril 2026</div>
 
-<div class="chart-wrap" style="height:160px;">
-<canvas id="lineChart"></canvas>
-</div>
-</div>
+  <div class="card-title">
+    Filtrar por mes
+  </div>
 
-<div class="card">
-<div class="card-title">RECESA vs REDELSA</div>
+  <select id="monthFilter" class="month-select">
 
-<div class="legend">
-<span class="leg-item">
-<span class="leg-dot" style="background:#1a1a1a;"></span>
-RECESA
-</span>
+    <option value="all">Todos los meses</option>
+    <option value="0">Mayo</option>
+    <option value="1">Junio</option>
+    <option value="2">Julio</option>
+    <option value="3">Agosto</option>
+    <option value="4">Septiembre</option>
+    <option value="5">Octubre</option>
+    <option value="6">Noviembre</option>
+    <option value="7">Diciembre</option>
+    <option value="8">Enero</option>
+    <option value="9">Febrero</option>
+    <option value="10">Marzo</option>
+    <option value="11">Abril</option>
 
-<span class="leg-item">
-<span class="leg-dot" style="background:#F5C400;"></span>
-REDELSA
-</span>
-</div>
+  </select>
 
-<div class="chart-wrap" style="height:160px;">
-<canvas id="barChart"></canvas>
-</div>
 </div>
 
 <div class="card">
-<div class="card-title">Participación por empresa</div>
-<div class="card-sub">% del total de ventas</div>
+  <div class="card-title">Ventas mensuales</div>
 
-<div class="empresa-row">
-<div class="emp-card">
-<div class="emp-name">RECESA</div>
-<div class="emp-total">Q181,935</div>
-<div class="emp-qty">211,628 uds.</div>
-<span class="emp-pct">15.9%</span>
-</div>
-
-<div class="emp-card">
-<div class="emp-name">REDELSA</div>
-<div class="emp-total">Q964,992</div>
-<div class="emp-qty">103,313 uds.</div>
-<span class="emp-pct">84.1%</span>
-</div>
-</div>
-
-<div class="chart-wrap" style="height:130px;">
-<canvas id="donutChart"></canvas>
-</div>
+  <div class="chart-wrap">
+    <canvas id="lineChart"></canvas>
+  </div>
 </div>
 
 <div class="card">
-<div class="card-title">Top 7 productos</div>
-<div class="card-sub">Por ventas acumuladas</div>
-<div id="products"></div>
+  <div class="card-title">RECESA vs REDELSA</div>
+
+  <div class="chart-wrap">
+    <canvas id="barChart"></canvas>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Participación por empresa</div>
+
+  <div class="chart-wrap">
+    <canvas id="donutChart"></canvas>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Top productos</div>
+
+  <div id="products"></div>
 </div>
 
 <div class="card social-card">
-<div class="card-title">Redes Sociales Resortes De Leon</div>
 
-<div class="social-buttons">
+  <div class="card-title">
+    Redes Sociales Resortes De Leon
+  </div>
 
-<a href="https://www.facebook.com/profile.php?id=61575572460011#" target="_blank" class="social-btn facebook">
-Facebook
-</a>
+  <div class="social-buttons">
 
-<a href="https://www.instagram.com/resortesdeleon?igsh=MWl6NmFqOWFxNTU5Mw==" target="_blank" class="social-btn instagram">
-Instagram
-</a>
+    <a href="https://www.facebook.com/profile.php?id=61575572460011#" target="_blank" class="social-btn facebook">
+      Facebook
+    </a>
 
-<a href="https://wa.me/50245445695" target="_blank" class="social-btn whatsapp">
-WhatsApp
-</a>
+    <a href="https://www.instagram.com/resortesdeleon?igsh=MWl6NmFqOWFxNTU5Mw==" target="_blank" class="social-btn instagram">
+      Instagram
+    </a>
 
-</div>
+    <a href="https://wa.me/50245445695" target="_blank" class="social-btn whatsapp">
+      WhatsApp
+    </a>
+
+  </div>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
