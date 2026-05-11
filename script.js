@@ -18,7 +18,7 @@ const PRODUCTS = [
 ];
 
 const YELLOW = '#F5C400';
-const BLACK  = '#1a1a1a';
+const BLACK  = '#4A4A4A';
 const GRAY   = 'rgba(128,128,128,0.1)';
 
 /* ── Utilidades ── */
@@ -66,29 +66,67 @@ function initLine() {
 /* ── Gráfico de barras apiladas ── */
 function initBar() {
   new Chart(document.getElementById('barChart'), {
+
     type: 'bar',
+
     data: {
       labels: MONTHS,
+
       datasets: [
-        { label: 'RECESA',  data: DATA.recesa,  backgroundColor: BLACK,  borderRadius: 2 },
-        { label: 'REDELSA', data: DATA.redelsa, backgroundColor: YELLOW, borderRadius: 2 },
+        {
+          label: 'RECESA',
+          data: DATA.recesa,
+          backgroundColor: BLACK,
+          borderRadius: 2,
+        },
+
+        {
+          label: 'REDELSA',
+          data: DATA.redelsa,
+          backgroundColor: YELLOW,
+          borderRadius: 2,
+        },
       ],
     },
+
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+
+      plugins: {
+        legend: { display: false }
+      },
+
       scales: {
+
         x: {
           stacked: true,
-          ticks: { font: { size: 9 }, maxRotation: 0, autoSkip: false },
-          grid:  { display: false },
+
+          ticks: {
+            font: { size: 9 },
+            maxRotation: 0,
+            autoSkip: false
+          },
+
+          grid: {
+            display: false
+          },
         },
+
         y: {
+
           stacked: true,
-          ticks: { font: { size: 9 }, callback: fmtK },
-          grid:  { color: GRAY },
+
+          ticks: {
+            font: { size: 9 },
+            callback: fmtK
+          },
+
+          grid: {
+            color: GRAY
+          },
         },
+
       },
     },
   });

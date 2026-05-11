@@ -297,17 +297,14 @@ body {
   background:#ece8df;
 }
 
-/* Facebook */
 .facebook{
   border-left:4px solid var(--yellow);
 }
 
-/* Instagram */
 .instagram{
   border-left:4px solid #c7a000;
 }
 
-/* WhatsApp */
 .whatsapp{
   border-left:4px solid #8c8c8c;
 }
