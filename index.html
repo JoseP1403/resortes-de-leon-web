@@ -3,42 +3,258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resortes de León — Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <title>Dashboard Resortes de León</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --yellow:#F5C400;
+      --gray:#4A4A4A;
+      --black:#1a1a1a;
+      --bg:#f4f4f2;
+      --surface:#ffffff;
+      --surface-alt:#f0eeea;
+      --border:rgba(0,0,0,.10);
+      --text-primary:#1a1a1a;
+      --text-secondary:#6b6b68;
+    }
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+      background:var(--bg);
+      padding:24px;
+      max-width:900px;
+      margin:auto;
+      color:var(--text-primary);
+    }
+
+    .hdr{
+      background:var(--black);
+      border-radius:18px;
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:16px;
+    }
+
+    .hdr-logo{
+      width:76px;
+      height:76px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:4px;
+      flex-shrink:0;
+    }
+
+    .hdr-title{
+      font-size:16px;
+      font-weight:700;
+      color:var(--yellow);
+    }
+
+    .hdr-sub{
+      font-size:12px;
+      color:#9d9d9d;
+      margin-top:4px;
+    }
+
+    .tabs{
+      display:flex;
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .tab-btn{
+      flex:1;
+      border:none;
+      padding:13px;
+      border-radius:14px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      font-weight:700;
+      cursor:pointer;
+      color:var(--text-primary);
+    }
+
+    .tab-btn.active{
+      background:var(--black);
+      color:var(--yellow);
+    }
+
+    .page{display:none}
+    .page.active{display:block}
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin-bottom:14px;
+    }
+
+    .metric{
+      background:white;
+      padding:14px;
+      border-radius:14px;
+      border-left:4px solid var(--yellow);
+    }
+
+    .metric-label{
+      font-size:11px;
+      color:#777;
+      margin-bottom:6px;
+    }
+
+    .metric-value{
+      font-size:22px;
+      font-weight:700;
+    }
+
+    .metric-sub{
+      font-size:11px;
+      color:#999;
+      margin-top:4px;
+    }
+
+    .card{
+      background:white;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:14px;
+      border:1px solid var(--border);
+    }
+
+    .card-title{
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:4px;
+    }
+
+    .card-sub{
+      font-size:12px;
+      color:var(--text-secondary);
+      margin-bottom:12px;
+    }
+
+    .chart-wrap{height:260px}
+
+    .empresa-row{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-bottom:16px;
+    }
+
+    .emp-card{
+      background:var(--surface-alt);
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .emp-name{font-size:12px;font-weight:700;margin-bottom:5px}
+    .emp-total{font-size:20px;font-weight:700}
+    .emp-qty{font-size:12px;color:var(--text-secondary)}
+    .emp-pct{display:inline-block;margin-top:6px;background:var(--yellow);padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700}
+
+    .prod-item{
+      display:grid;
+      grid-template-columns:1fr 100px 45px;
+      gap:10px;
+      align-items:center;
+      padding:8px 0;
+      border-bottom:1px solid var(--border);
+      font-size:12px;
+    }
+
+    .prod-bar-wrap{height:6px;background:var(--surface-alt);border-radius:10px;overflow:hidden}
+    .prod-bar{height:100%;background:var(--yellow);border-radius:10px}
+    .prod-val{text-align:right;color:var(--text-secondary);font-size:11px}
+
+    .social-card{text-align:center}
+    .social-buttons{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+    .social-btn{text-decoration:none;padding:15px;border-radius:14px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text-primary);background:var(--surface-alt);transition:.2s ease}
+    .social-btn:hover{transform:translateY(-2px);border-color:var(--yellow)}
+    .facebook{border-left:4px solid var(--yellow)}
+    .instagram{border-left:4px solid #c7a000}
+    .whatsapp{border-left:4px solid #8c8c8c}
+
+    .month-select{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--surface-alt);
+      font-size:13px;
+      outline:none;
+      margin-bottom:16px;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .detail-card{
+      background:#f7f7f5;
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .detail-label{font-size:11px;color:#777;margin-bottom:5px}
+    .detail-value{font-size:22px;font-weight:700}
+
+    @media(max-width:700px){
+      body{padding:16px}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .empresa-row,.detail-grid{grid-template-columns:1fr}
+      .prod-item{grid-template-columns:1fr;gap:5px}
+      .prod-val{text-align:left}
+      .hdr-logo{width:62px;height:62px}
+      .hdr-title{font-size:14px}
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header class="hdr">
-    <div class="hdr-icon">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
-      </svg>
-    </div>
-    <div>
-      <div class="hdr-title">Análisis Redes Sociales Resortes de León</div>
-      <div class="hdr-sub">Ventas · Mayo 2025 – Abril 2026</div>
-    </div>
-  </header>
+<header class="hdr">
+  <img src="logo-resortes.png" alt="Logo Resortes de León" class="hdr-logo">
+  <div>
+    <div class="hdr-title">Análisis Redes Sociales Resortes de León</div>
+    <div class="hdr-sub">Ventas · Mayo 2025 – Mayo 2026</div>
+  </div>
+</header>
 
-  <!-- Métricas -->
-  <section class="metrics" aria-label="Métricas principales">
+<div class="tabs">
+  <button class="tab-btn active" onclick="showPage('main', event)">Página principal</button>
+  <button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button>
+</div>
+
+<div id="main" class="page active">
+
+  <section class="metrics">
     <div class="metric">
-      <div class="metric-label">Ventas totales</div>
+      <div class="metric-label">Ventas Totales</div>
       <div class="metric-value">Q1.15M</div>
       <div class="metric-sub">Acumulado</div>
     </div>
+
     <div class="metric">
       <div class="metric-label">Unidades</div>
       <div class="metric-value">314,941</div>
       <div class="metric-sub">Piezas vendidas</div>
     </div>
+
     <div class="metric">
       <div class="metric-label">Mejor mes</div>
       <div class="metric-value">Abr 2026</div>
       <div class="metric-sub">Q249,700</div>
     </div>
+
     <div class="metric">
       <div class="metric-label">Empresas</div>
       <div class="metric-value">2</div>
@@ -46,31 +262,21 @@
     </div>
   </section>
 
-  <!-- Gráfico líneas -->
   <div class="card">
     <div class="card-title">Ventas mensuales</div>
-    <div class="card-sub">Evolución mayo 2025 – abril 2026</div>
-    <div class="chart-wrap" style="height:160px;">
-      <canvas id="lineChart" role="img" aria-label="Ventas mensuales de mayo 2025 a abril 2026"></canvas>
-    </div>
+    <div class="card-sub">Evolución mayo 2025 – mayo 2026</div>
+    <div class="chart-wrap"><canvas id="lineChart"></canvas></div>
   </div>
 
-  <!-- Gráfico barras -->
   <div class="card">
     <div class="card-title">RECESA vs REDELSA</div>
-    <div class="legend">
-      <span class="leg-item"><span class="leg-dot" style="background:#1a1a1a;"></span>RECESA</span>
-      <span class="leg-item"><span class="leg-dot" style="background:#F5C400;"></span>REDELSA</span>
-    </div>
-    <div class="chart-wrap" style="height:160px;">
-      <canvas id="barChart" role="img" aria-label="Ventas comparadas por empresa y mes"></canvas>
-    </div>
+    <div class="chart-wrap"><canvas id="barChart"></canvas></div>
   </div>
 
-  <!-- Participación -->
   <div class="card">
     <div class="card-title">Participación por empresa</div>
     <div class="card-sub">% del total de ventas</div>
+
     <div class="empresa-row">
       <div class="emp-card">
         <div class="emp-name">RECESA</div>
@@ -78,6 +284,7 @@
         <div class="emp-qty">211,628 uds.</div>
         <span class="emp-pct">15.9%</span>
       </div>
+
       <div class="emp-card">
         <div class="emp-name">REDELSA</div>
         <div class="emp-total">Q964,992</div>
@@ -85,56 +292,259 @@
         <span class="emp-pct">84.1%</span>
       </div>
     </div>
-    <div class="chart-wrap" style="height:130px;">
-      <canvas id="donutChart" role="img" aria-label="Dona: REDELSA 84% y RECESA 16%"></canvas>
-    </div>
+
+    <div class="chart-wrap" style="height:220px;"><canvas id="donutChart"></canvas></div>
   </div>
 
-  <!-- Top productos -->
   <div class="card">
     <div class="card-title">Top 7 productos</div>
     <div class="card-sub">Por ventas acumuladas</div>
     <div id="products"></div>
   </div>
 
-  
-  <!-- Redes Sociales -->
   <div class="card social-card">
-
-    <div class="card-title">
-      Redes Sociales Resortes De Leon
-    </div>
-
+    <div class="card-title">Redes Sociales Resortes De Leon</div>
     <div class="social-buttons">
-
-      <a
-        href="https://www.facebook.com/profile.php?id=61575572460011#"
-        target="_blank"
-        class="social-btn facebook"
-      >
-        Facebook
-      </a>
-
-      <a
-        href="https://www.instagram.com/resortesdeleon?igsh=MWl6NmFqOWFxNTU5Mw=="
-        target="_blank"
-        class="social-btn instagram"
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://wa.me/50245445695"
-        target="_blank"
-        class="social-btn whatsapp"
-      >
-        WhatsApp
-      </a>
-
+      <a href="https://www.facebook.com/profile.php?id=61575572460011#" target="_blank" class="social-btn facebook">Facebook</a>
+      <a href="https://www.instagram.com/resortesdeleon?igsh=MWl6NmFqOWFxNTU5Mw==" target="_blank" class="social-btn instagram">Instagram</a>
+      <a href="https://wa.me/50245445695" target="_blank" class="social-btn whatsapp">WhatsApp</a>
     </div>
-
   </div>
 
-<script src="script.js"></script>
+</div>
+
+<div id="detail" class="page">
+
+  <div class="card">
+    <div class="card-title">Desglose por mes</div>
+    <div class="card-sub">Selecciona un mes para ver el detalle</div>
+
+    <select id="monthSelect" class="month-select">
+      <option value="0">Mayo 2025</option>
+      <option value="1">Junio 2025</option>
+      <option value="2">Julio 2025</option>
+      <option value="3">Agosto 2025</option>
+      <option value="4">Septiembre 2025</option>
+      <option value="5">Octubre 2025</option>
+      <option value="6">Noviembre 2025</option>
+      <option value="7">Diciembre 2025</option>
+      <option value="8">Enero 2026</option>
+      <option value="9">Febrero 2026</option>
+      <option value="10">Marzo 2026</option>
+      <option value="11">Abril 2026</option>
+      <option value="12">Mayo 2026</option>
+    </select>
+
+    <div id="monthDetail" class="detail-grid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Ventas del mes seleccionado</div>
+    <div class="chart-wrap"><canvas id="monthChart"></canvas></div>
+  </div>
+
+</div>
+
+<script>
+const MONTHS = ['May','Jun','Jul','Ago','Sep','Oct','Nov','Dic','Ene','Feb','Mar','Abr','May'];
+
+const DATA = {
+  totals:[257,16994,64495,51312,50145,26895,28729,195085,137409,190802,135104,249700,29134],
+  recesa:[0,0,0,0,700,4910,4357,0,0,10115,40038,121815,0],
+  redelsa:[257,16994,64495,51312,49445,21985,24372,195085,137409,180687,95066,127885,29134]
+};
+
+const MONTH_DETAILS = [
+  {"month":"Mayo 2025","total":257.2,"recesa":0,"redelsa":257.2,"units":8,"daily":8.57,"topValueProduct":"TAPON PARA CANTER P/ HULE 641","topValueTotal":192.4},
+  {"month":"Junio 2025","total":16993.88,"recesa":0,"redelsa":16993.88,"units":224,"daily":566.46,"topValueProduct":"RESORTE C TOYOTA TACOMA V-6 TRA. 23X29 C/J L/L","topValueTotal":2670.17},
+  {"month":"Julio 2025","total":64494.73,"recesa":0,"redelsa":64494.73,"units":243,"daily":2149.82,"topValueProduct":"BARRA LISA F1554/GR55 25MM X 3.55 MTS","topValueTotal":45865.17},
+  {"month":"Agosto 2025","total":51312.08,"recesa":0,"redelsa":51312.08,"units":787,"daily":1710.4,"topValueProduct":"LANA CUADRADA 1/2 X 3 X 13 CON TUERCAS","topValueTotal":4389.84},
+  {"month":"Septiembre 2025","total":50145.4,"recesa":700,"redelsa":49445.4,"units":876,"daily":1671.51,"topValueProduct":"TORNILLO LAMINA 14 X 1 1/2","topValueTotal":10940},
+  {"month":"Octubre 2025","total":26895.46,"recesa":4910,"redelsa":21985.46,"units":1295,"daily":896.52,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":3477.5},
+  {"month":"Noviembre 2025","total":28728.73,"recesa":4357,"redelsa":24371.73,"units":1604,"daily":957.62,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":23178.52},
+  {"month":"Diciembre 2025","total":195084.83,"recesa":0,"redelsa":195084.83,"units":118833,"daily":6502.83,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":94459.56},
+  {"month":"Enero 2026","total":137408.75,"recesa":0,"redelsa":137408.75,"units":38330,"daily":4580.29,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":39599},
+  {"month":"Febrero 2026","total":190802.17,"recesa":10115,"redelsa":180687.17,"units":61587,"daily":6360.07,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":63580.3},
+  {"month":"Marzo 2026","total":135104.07,"recesa":40038,"redelsa":95066.07,"units":53787,"daily":4503.47,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":37952.4},
+  {"month":"Abril 2026","total":249699.64,"recesa":121815,"redelsa":127884.64,"units":34994,"daily":8323.32,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":58923.9},
+  {"month":"Mayo 2026","total":29133.91,"recesa":0,"redelsa":29133.91,"units":2353,"daily":971.13,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":10228.2}
+];
+
+const PRODUCTS = [
+  {name:'Perno S/Muestra', val:283000},
+  {name:'Barra lisa F1554/GR55 25mm', val:46000},
+  {name:'Tornillo lámina 14×1½', val:31000},
+  {name:'Tornillo hex. A325 1×3½', val:31000},
+  {name:'Tuerca hex. A325 5/8', val:27000},
+  {name:'Tuerca hex. A325 1.3/8', val:26000},
+  {name:'Barra lisa F1554/GR105 1”', val:25000}
+];
+
+const YELLOW = '#F5C400';
+const GRAY = '#4A4A4A';
+let monthChart;
+
+function money(v){
+  return 'Q' + Math.round(v).toLocaleString('en-US');
+}
+
+function showPage(page, event){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(page).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function renderProducts(){
+  const container = document.getElementById('products');
+  const max = PRODUCTS[0].val;
+
+  PRODUCTS.forEach(p => {
+    const pct = Math.round((p.val / max) * 100);
+    const div = document.createElement('div');
+    div.className = 'prod-item';
+    div.innerHTML = `
+      <div>${p.name}</div>
+      <div class="prod-bar-wrap"><div class="prod-bar" style="width:${pct}%"></div></div>
+      <div class="prod-val">Q${Math.round(p.val/1000)}k</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+new Chart(document.getElementById('lineChart'), {
+  type:'line',
+  data:{
+    labels:MONTHS,
+    datasets:[{
+      data:DATA.totals,
+      borderColor:YELLOW,
+      backgroundColor:'rgba(245,196,0,.12)',
+      fill:true,
+      tension:.35,
+      pointBackgroundColor:YELLOW,
+      pointRadius:4,
+      borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:(context)=>'Q'+context.raw.toLocaleString('en-US')}}
+    },
+    scales:{
+      x:{grid:{display:false}},
+      y:{
+        ticks:{callback:(value)=>'Q'+(value/1000)+'k'},
+        grid:{color:'rgba(0,0,0,.08)'}
+      }
+    }
+  }
+});
+
+new Chart(document.getElementById('barChart'), {
+  type:'bar',
+  data:{
+    labels:MONTHS,
+    datasets:[
+      {label:'RECESA',data:DATA.recesa,backgroundColor:GRAY,borderRadius:4},
+      {label:'REDELSA',data:DATA.redelsa,backgroundColor:YELLOW,borderRadius:4}
+    ]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{
+      legend:{position:'top',align:'start'},
+      tooltip:{callbacks:{label:(context)=>context.dataset.label+': Q'+context.raw.toLocaleString('en-US')}}
+    },
+    scales:{
+      x:{stacked:true,grid:{display:false}},
+      y:{stacked:true,ticks:{callback:(value)=>'Q'+(value/1000)+'k'},grid:{color:'rgba(0,0,0,.08)'}}
+    }
+  }
+});
+
+new Chart(document.getElementById('donutChart'), {
+  type:'doughnut',
+  data:{labels:['RECESA','REDELSA'],datasets:[{data:[181935,964992],backgroundColor:[GRAY,YELLOW],borderWidth:0}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'bottom'}}}
+});
+
+function renderMonthDetail(index){
+  const data = MONTH_DETAILS[index];
+  const detail = document.getElementById('monthDetail');
+  const avgUnit = data.units ? data.total / data.units : 0;
+
+  detail.innerHTML = `
+    <div class="detail-card">
+      <div class="detail-label">Mes</div>
+      <div class="detail-value" style="font-size:18px;">${data.month}</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-label">Venta mes</div>
+      <div class="detail-value">${money(data.total)}</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-label">Venta en cantidad</div>
+      <div class="detail-value">${data.units.toLocaleString('en-US')}</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-label">Promedio de venta</div>
+      <div class="detail-value">${money(avgUnit)}</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-label">Venta diaria</div>
+      <div class="detail-value">${money(data.daily)}</div>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-label">Top producto</div>
+      <div class="detail-value" style="font-size:14px;line-height:1.2;">${data.topValueProduct}</div>
+      <div style="font-size:11px;color:#777;margin-top:4px;">${money(data.topValueTotal)}</div>
+    </div>
+  `;
+
+  if(monthChart){monthChart.destroy();}
+
+  monthChart = new Chart(document.getElementById('monthChart'), {
+    type:'bar',
+    data:{
+      labels:['Ventas'],
+      datasets:[
+        {label:'RECESA',data:[data.recesa],backgroundColor:GRAY,borderRadius:6},
+        {label:'REDELSA',data:[data.redelsa],backgroundColor:YELLOW,borderRadius:6}
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'top',align:'start'},
+        tooltip:{callbacks:{label:(context)=>context.dataset.label+': Q'+context.raw.toLocaleString('en-US')}}
+      },
+      scales:{
+        x:{stacked:true,grid:{display:false}},
+        y:{stacked:true,ticks:{callback:(value)=>'Q'+(value/1000)+'k'},grid:{color:'rgba(0,0,0,.08)'}}
+      }
+    }
+  });
+}
+
+renderProducts();
+renderMonthDetail(0);
+
+document.getElementById('monthSelect').addEventListener('change', e => {
+  renderMonthDetail(Number(e.target.value));
+});
+</script>
+
 </body>
 </html>
