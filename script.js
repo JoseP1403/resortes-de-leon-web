@@ -1,32 +1,30 @@
-/* ── Datos ── */
-const MONTHS = ['May','Jun','Jul','Ago','Sep','Oct','Nov','Dic','Ene','Feb','Mar','Abr'];
+
+const MONTHS = ['May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic', 'Ene', 'Feb', 'Mar', 'Abr', 'May'];
 
 const DATA = {
-  totals:  [257, 16994, 64495, 51312, 50145, 26895, 28729, 195085, 137409, 190802, 135104, 249700],
-  recesa:  [0,   0,     0,     0,     700,   4910,  4357,  0,      0,      10115,  40038,  121815],
-  redelsa: [0,   16994, 64495, 51312, 49445, 21985, 24372, 195085, 137409, 180687, 95066,  127885],
+  totals: [257.2, 16993.88, 64494.73, 51312.08, 50145.12, 26894.56, 28729.46, 195085.06, 137408.91, 190801.8, 135104.12, 258641.52, 29133.91],
+  recesa: [0.0, 0.0, 0.0, 0.0, 700.0, 4910.0, 4357.12, 0.0, 0.0, 10115.0, 40038.1, 121814.7, 2920.32],
+  redelsa: [257.2, 16993.88, 64494.73, 51312.08, 49445.12, 21984.56, 24372.34, 195085.06, 137408.91, 180686.8, 95066.02, 136826.82, 26213.59],
 };
 
 const PRODUCTS = [
-  { name: 'Perno S/Muestra',          val: 265074 },
-  { name: 'Barra lisa GR55 25mm',     val: 45865  },
-  { name: 'Tornillo lámina 14×1½',    val: 30940  },
-  { name: 'Tornillo hex. A325 1×3½',  val: 30906  },
-  { name: 'Tuerca hex. A325 1.3/8',   val: 26250  },
-  { name: 'Tuerca hex. A325 5/8',     val: 26198  },
-  { name: 'Barra lisa GR105 1"',      val: 24840  },
+{ name: 'PERNO S/MUESTRA', val: 283424.56 },
+{ name: 'BARRA LISA F1554/GR55 25MM X 3.55 MTS', val: 45865.17 },
+{ name: 'TORNILLO LAMINA 14 X 1 1/2', val: 30939.6 },
+{ name: 'TORNILLO HEX. A325 1 X 3 1/2', val: 30906.08 },
+{ name: 'TUERCA HEX. A325 5/8', val: 26584.84 },
+{ name: 'TUERCA HEX. A325 1.3/8', val: 26250.0 },
+{ name: 'BARRA LISA F1554/GR105 1" X 6 MTS', val: 24840.0 }
 ];
 
 const YELLOW = '#F5C400';
 const BLACK  = '#1a1a1a';
 const GRAY   = 'rgba(128,128,128,0.1)';
 
-/* ── Utilidades ── */
 function fmtK(v) {
   return 'Q' + (v >= 1000 ? Math.round(v / 1000) + 'k' : v);
 }
 
-/* ── Gráfico de líneas ── */
 function initLine() {
   new Chart(document.getElementById('lineChart'), {
     type: 'line',
@@ -40,7 +38,6 @@ function initLine() {
         borderWidth: 2,
         pointBackgroundColor: YELLOW,
         pointRadius: 3,
-        pointHoverRadius: 5,
         fill: true,
         tension: 0.35,
       }],
@@ -49,89 +46,63 @@ function initLine() {
       responsive: true,
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
-      scales: {
-        x: {
-          ticks: { font: { size: 9 }, maxRotation: 0, autoSkip: false },
-          grid:  { display: false },
-        },
-        y: {
-          ticks: { font: { size: 9 }, callback: fmtK },
-          grid:  { color: GRAY },
-        },
-      },
     },
   });
 }
 
-/* ── Gráfico de barras apiladas ── */
 function initBar() {
   new Chart(document.getElementById('barChart'), {
     type: 'bar',
     data: {
       labels: MONTHS,
       datasets: [
-        { label: 'RECESA',  data: DATA.recesa,  backgroundColor: BLACK,  borderRadius: 2 },
-        { label: 'REDELSA', data: DATA.redelsa, backgroundColor: YELLOW, borderRadius: 2 },
+        { label: 'RECESA', data: DATA.recesa, backgroundColor: BLACK },
+        { label: 'REDELSA', data: DATA.redelsa, backgroundColor: YELLOW },
       ],
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
-      scales: {
-        x: {
-          stacked: true,
-          ticks: { font: { size: 9 }, maxRotation: 0, autoSkip: false },
-          grid:  { display: false },
-        },
-        y: {
-          stacked: true,
-          ticks: { font: { size: 9 }, callback: fmtK },
-          grid:  { color: GRAY },
-        },
-      },
     },
   });
 }
 
-/* ── Gráfico de dona ── */
 function initDonut() {
+
+  const totalRecesa = DATA.recesa.reduce((a,b)=>a+b,0);
+  const totalRedelsa = DATA.redelsa.reduce((a,b)=>a+b,0);
+
   new Chart(document.getElementById('donutChart'), {
     type: 'doughnut',
     data: {
       labels: ['RECESA', 'REDELSA'],
       datasets: [{
-        data: [181935, 964992],
+        data: [totalRecesa, totalRedelsa],
         backgroundColor: [BLACK, YELLOW],
         borderWidth: 0,
-        hoverOffset: 4,
       }],
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      cutout: '65%',
       plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => ctx.label + ': Q' + ctx.parsed.toLocaleString(),
-          },
-        },
+        legend: { display: false }
       },
     },
   });
 }
 
-/* ── Lista de productos ── */
 function renderProducts() {
   const container = document.getElementById('products');
   const maxVal = PRODUCTS[0].val;
 
   PRODUCTS.forEach(p => {
-    const pct  = Math.round((p.val / maxVal) * 100);
+    const pct = Math.round((p.val / maxVal) * 100);
+
     const item = document.createElement('div');
     item.className = 'prod-item';
+
     item.innerHTML = `
       <div class="prod-name">${p.name}</div>
       <div class="prod-bar-wrap">
@@ -139,11 +110,11 @@ function renderProducts() {
       </div>
       <div class="prod-val">Q${Math.round(p.val / 1000)}k</div>
     `;
+
     container.appendChild(item);
   });
 }
 
-/* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
   initLine();
   initBar();
