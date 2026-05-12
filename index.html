@@ -19,6 +19,20 @@
       --border:rgba(0,0,0,.10);
       --text-primary:#1a1a1a;
       --text-secondary:#6b6b68;
+      --grid:rgba(0,0,0,.08);
+      --card-shadow:0 1px 2px rgba(0,0,0,.03);
+    }
+
+    body.dark{
+      --bg:#121212;
+      --surface:#1e1e1e;
+      --surface-alt:#2a2a2a;
+      --border:rgba(255,255,255,.12);
+      --text-primary:#f1f1f1;
+      --text-secondary:#a9a9a9;
+      --grid:rgba(255,255,255,.12);
+      --black:#101010;
+      --card-shadow:0 1px 8px rgba(0,0,0,.25);
     }
 
     body{
@@ -28,6 +42,7 @@
       max-width:900px;
       margin:auto;
       color:var(--text-primary);
+      transition:background .2s ease,color .2s ease;
     }
 
     .hdr{
@@ -62,14 +77,21 @@
       margin-top:4px;
     }
 
-    .tabs{
+    .top-row{
       display:flex;
+      justify-content:space-between;
+      align-items:center;
       gap:10px;
       margin-bottom:14px;
     }
 
-    .tab-btn{
+    .tabs{
+      display:flex;
+      gap:10px;
       flex:1;
+    }
+
+    .tab-btn,.mode-btn{
       border:none;
       padding:13px;
       border-radius:14px;
@@ -78,11 +100,18 @@
       font-weight:700;
       cursor:pointer;
       color:var(--text-primary);
+      box-shadow:var(--card-shadow);
     }
+
+    .tab-btn{flex:1}
 
     .tab-btn.active{
       background:var(--black);
       color:var(--yellow);
+    }
+
+    .mode-btn{
+      min-width:120px;
     }
 
     .page{display:none}
@@ -96,41 +125,45 @@
     }
 
     .metric{
-      background:white;
+      background:var(--surface);
       padding:14px;
       border-radius:14px;
       border-left:4px solid var(--yellow);
+      box-shadow:var(--card-shadow);
     }
 
     .metric-label{
       font-size:11px;
-      color:#777;
+      color:var(--text-secondary);
       margin-bottom:6px;
     }
 
     .metric-value{
       font-size:22px;
       font-weight:700;
+      color:var(--text-primary);
     }
 
     .metric-sub{
       font-size:11px;
-      color:#999;
+      color:var(--text-secondary);
       margin-top:4px;
     }
 
     .card{
-      background:white;
+      background:var(--surface);
       border-radius:18px;
       padding:18px;
       margin-bottom:14px;
       border:1px solid var(--border);
+      box-shadow:var(--card-shadow);
     }
 
     .card-title{
       font-size:15px;
       font-weight:700;
       margin-bottom:4px;
+      color:var(--text-primary);
     }
 
     .card-sub{
@@ -157,7 +190,7 @@
     .emp-name{font-size:12px;font-weight:700;margin-bottom:5px}
     .emp-total{font-size:20px;font-weight:700}
     .emp-qty{font-size:12px;color:var(--text-secondary)}
-    .emp-pct{display:inline-block;margin-top:6px;background:var(--yellow);padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700}
+    .emp-pct{display:inline-block;margin-top:6px;background:var(--yellow);padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700;color:#1a1a1a}
 
     .prod-item{
       display:grid;
@@ -167,6 +200,7 @@
       padding:8px 0;
       border-bottom:1px solid var(--border);
       font-size:12px;
+      color:var(--text-primary);
     }
 
     .prod-bar-wrap{height:6px;background:var(--surface-alt);border-radius:10px;overflow:hidden}
@@ -187,6 +221,7 @@
       border-radius:12px;
       border:1px solid var(--border);
       background:var(--surface-alt);
+      color:var(--text-primary);
       font-size:13px;
       outline:none;
       margin-bottom:16px;
@@ -199,16 +234,17 @@
     }
 
     .detail-card{
-      background:#f7f7f5;
+      background:var(--surface-alt);
       border-radius:14px;
       padding:14px;
     }
 
-    .detail-label{font-size:11px;color:#777;margin-bottom:5px}
-    .detail-value{font-size:22px;font-weight:700}
+    .detail-label{font-size:11px;color:var(--text-secondary);margin-bottom:5px}
+    .detail-value{font-size:22px;font-weight:700;color:var(--text-primary)}
 
     @media(max-width:700px){
       body{padding:16px}
+      .top-row{flex-direction:column;align-items:stretch}
       .metrics{grid-template-columns:repeat(2,1fr)}
       .empresa-row,.detail-grid{grid-template-columns:1fr}
       .prod-item{grid-template-columns:1fr;gap:5px}
@@ -229,9 +265,12 @@
   </div>
 </header>
 
-<div class="tabs">
-  <button class="tab-btn active" onclick="showPage('main', event)">Página principal</button>
-  <button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button>
+<div class="top-row">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showPage('main', event)">Página principal</button>
+    <button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button>
+  </div>
+  <button class="mode-btn" onclick="toggleDarkMode()">Modo noche</button>
 </div>
 
 <div id="main" class="page active">
@@ -239,20 +278,20 @@
   <section class="metrics">
     <div class="metric">
       <div class="metric-label">Ventas Totales</div>
-      <div class="metric-value">Q1.15M</div>
+      <div class="metric-value" id="kpiTotal"></div>
       <div class="metric-sub">Acumulado</div>
     </div>
 
     <div class="metric">
       <div class="metric-label">Unidades</div>
-      <div class="metric-value">314,941</div>
+      <div class="metric-value" id="kpiUnits"></div>
       <div class="metric-sub">Piezas vendidas</div>
     </div>
 
     <div class="metric">
       <div class="metric-label">Mejor mes</div>
-      <div class="metric-value">Abr 2026</div>
-      <div class="metric-sub">Q249,700</div>
+      <div class="metric-value" id="kpiBestMonth"></div>
+      <div class="metric-sub" id="kpiBestTotal"></div>
     </div>
 
     <div class="metric">
@@ -280,16 +319,16 @@
     <div class="empresa-row">
       <div class="emp-card">
         <div class="emp-name">RECESA</div>
-        <div class="emp-total">Q181,935</div>
-        <div class="emp-qty">211,628 uds.</div>
-        <span class="emp-pct">15.9%</span>
+        <div class="emp-total" id="recesaTotal"></div>
+        <div class="emp-qty" id="recesaUnits"></div>
+        <span class="emp-pct" id="recesaPct"></span>
       </div>
 
       <div class="emp-card">
         <div class="emp-name">REDELSA</div>
-        <div class="emp-total">Q964,992</div>
-        <div class="emp-qty">103,313 uds.</div>
-        <span class="emp-pct">84.1%</span>
+        <div class="emp-total" id="redelsaTotal"></div>
+        <div class="emp-qty" id="redelsaUnits"></div>
+        <span class="emp-pct" id="redelsaPct"></span>
       </div>
     </div>
 
@@ -319,88 +358,94 @@
     <div class="card-title">Desglose por mes</div>
     <div class="card-sub">Selecciona un mes para ver el detalle</div>
 
-    <select id="monthSelect" class="month-select">
-      <option value="0">Mayo 2025</option>
-      <option value="1">Junio 2025</option>
-      <option value="2">Julio 2025</option>
-      <option value="3">Agosto 2025</option>
-      <option value="4">Septiembre 2025</option>
-      <option value="5">Octubre 2025</option>
-      <option value="6">Noviembre 2025</option>
-      <option value="7">Diciembre 2025</option>
-      <option value="8">Enero 2026</option>
-      <option value="9">Febrero 2026</option>
-      <option value="10">Marzo 2026</option>
-      <option value="11">Abril 2026</option>
-      <option value="12">Mayo 2026</option>
-    </select>
+    <select id="monthSelect" class="month-select"></select>
 
     <div id="monthDetail" class="detail-grid"></div>
   </div>
 
   <div class="card">
     <div class="card-title">Ventas del mes seleccionado</div>
+    <div class="card-sub">Gráfica apilada por empresa</div>
     <div class="chart-wrap"><canvas id="monthChart"></canvas></div>
   </div>
 
 </div>
 
 <script>
-const MONTHS = ['May','Jun','Jul','Ago','Sep','Oct','Nov','Dic','Ene','Feb','Mar','Abr','May'];
-
-const DATA = {
-  totals:[257,16994,64495,51312,50145,26895,28729,195085,137409,190802,135104,249700,29134],
-  recesa:[0,0,0,0,700,4910,4357,0,0,10115,40038,121815,0],
-  redelsa:[257,16994,64495,51312,49445,21985,24372,195085,137409,180687,95066,127885,29134]
-};
-
-const MONTH_DETAILS = [
-  {"month":"Mayo 2025","total":257.2,"recesa":0,"redelsa":257.2,"units":8,"daily":8.57,"topValueProduct":"TAPON PARA CANTER P/ HULE 641","topValueTotal":192.4},
-  {"month":"Junio 2025","total":16993.88,"recesa":0,"redelsa":16993.88,"units":224,"daily":566.46,"topValueProduct":"RESORTE C TOYOTA TACOMA V-6 TRA. 23X29 C/J L/L","topValueTotal":2670.17},
-  {"month":"Julio 2025","total":64494.73,"recesa":0,"redelsa":64494.73,"units":243,"daily":2149.82,"topValueProduct":"BARRA LISA F1554/GR55 25MM X 3.55 MTS","topValueTotal":45865.17},
-  {"month":"Agosto 2025","total":51312.08,"recesa":0,"redelsa":51312.08,"units":787,"daily":1710.4,"topValueProduct":"LANA CUADRADA 1/2 X 3 X 13 CON TUERCAS","topValueTotal":4389.84},
-  {"month":"Septiembre 2025","total":50145.4,"recesa":700,"redelsa":49445.4,"units":876,"daily":1671.51,"topValueProduct":"TORNILLO LAMINA 14 X 1 1/2","topValueTotal":10940},
-  {"month":"Octubre 2025","total":26895.46,"recesa":4910,"redelsa":21985.46,"units":1295,"daily":896.52,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":3477.5},
-  {"month":"Noviembre 2025","total":28728.73,"recesa":4357,"redelsa":24371.73,"units":1604,"daily":957.62,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":23178.52},
-  {"month":"Diciembre 2025","total":195084.83,"recesa":0,"redelsa":195084.83,"units":118833,"daily":6502.83,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":94459.56},
-  {"month":"Enero 2026","total":137408.75,"recesa":0,"redelsa":137408.75,"units":38330,"daily":4580.29,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":39599},
-  {"month":"Febrero 2026","total":190802.17,"recesa":10115,"redelsa":180687.17,"units":61587,"daily":6360.07,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":63580.3},
-  {"month":"Marzo 2026","total":135104.07,"recesa":40038,"redelsa":95066.07,"units":53787,"daily":4503.47,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":37952.4},
-  {"month":"Abril 2026","total":249699.64,"recesa":121815,"redelsa":127884.64,"units":34994,"daily":8323.32,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":58923.9},
-  {"month":"Mayo 2026","total":29133.91,"recesa":0,"redelsa":29133.91,"units":2353,"daily":971.13,"topValueProduct":"PERNO S/MUESTRA","topValueTotal":10228.2}
-];
-
-const PRODUCTS = [
-  {name:'Perno S/Muestra', val:283000},
-  {name:'Barra lisa F1554/GR55 25mm', val:46000},
-  {name:'Tornillo lámina 14×1½', val:31000},
-  {name:'Tornillo hex. A325 1×3½', val:31000},
-  {name:'Tuerca hex. A325 5/8', val:27000},
-  {name:'Tuerca hex. A325 1.3/8', val:26000},
-  {name:'Barra lisa F1554/GR105 1”', val:25000}
-];
+const DASH = {"labels": ["May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic", "Ene", "Feb", "Mar", "Abr", "May"], "fullLabels": ["Mayo 2025", "Junio 2025", "Julio 2025", "Agosto 2025", "Septiembre 2025", "Octubre 2025", "Noviembre 2025", "Diciembre 2025", "Enero 2026", "Febrero 2026", "Marzo 2026", "Abril 2026", "Mayo 2026"], "totals": [257.2, 16993.88, 64494.73, 51312.08, 50145.12, 26894.56, 28729.46, 195085.06, 137408.91, 190801.8, 135104.12, 258641.52, 29133.91], "units": [8, 224, 243, 787, 440, 790, 998, 57711, 12639, 37217, 137987, 66167, 2353], "recesa": [0.0, 0.0, 0.0, 0.0, 700.0, 4910.0, 4357.12, 0.0, 0.0, 10115.0, 40038.1, 121814.7, 2920.32], "redelsa": [257.2, 16993.88, 64494.73, 51312.08, 49445.12, 21984.56, 24372.34, 195085.06, 137408.91, 180686.8, 95066.02, 136826.82, 26213.59], "recesaTotal": 184855.24, "redelsaTotal": 1000147.11, "recesaUnits": 212104, "redelsaUnits": 105460, "grandTotal": 1185002.35, "grandUnits": 317564, "products": [{"name": "PERNO S/MUESTRA", "val": 283424.56}, {"name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "val": 45865.17}, {"name": "TORNILLO LAMINA 14 X 1 1/2", "val": 30939.6}, {"name": "TORNILLO HEX. A325 1 X 3 1/2", "val": 30906.08}, {"name": "TUERCA HEX. A325 5/8", "val": 26584.84}, {"name": "TUERCA HEX. A325 1.3/8", "val": 26250.0}, {"name": "BARRA LISA F1554/GR105 1\" X 6 MTS", "val": 24840.0}], "details": [{"month": "Mayo 2025", "total": 257.2, "recesa": 0.0, "redelsa": 257.2, "units": 8, "daily": 8.3, "topValueProduct": "TAPON PARA CANTER P/ HULE 641", "topValueTotal": 192.4, "topUnitsProduct": "BUSHING PLASTICO HU-641 (23037) AMBAR NKR-CANTER-DINA", "topUnitsQty": 4}, {"month": "Junio 2025", "total": 16993.88, "recesa": 0.0, "redelsa": 16993.88, "units": 224, "daily": 566.46, "topValueProduct": "RESORTE C TOYOTA TACOMA V-6 TRA. 23X29 C/J L/L (4HN+1AUX) (2RB-660)", "topValueTotal": 2670.17, "topUnitsProduct": "TORNILLO CENTRO 3/8 X 4", "topUnitsQty": 59}, {"month": "Julio 2025", "total": 64494.73, "recesa": 0.0, "redelsa": 64494.73, "units": 243, "daily": 2080.48, "topValueProduct": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "topValueTotal": 45865.17, "topUnitsProduct": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "topUnitsQty": 143}, {"month": "Agosto 2025", "total": 51312.08, "recesa": 0.0, "redelsa": 51312.08, "units": 787, "daily": 1655.23, "topValueProduct": "LANA CUADRADA 1/2 X 3 X 13 CON TUERCA", "topValueTotal": 5732.85, "topUnitsProduct": "KILOMETRO DE IDA / VUELTA", "topUnitsQty": 195}, {"month": "Septiembre 2025", "total": 50145.12, "recesa": 700.0, "redelsa": 49445.12, "units": 440, "daily": 1671.5, "topValueProduct": "RESORTE C INTER DEL 9HN+2PL (4X7/16 RO. 1.1/2)", "topValueTotal": 5202.0, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 50}, {"month": "Octubre 2025", "total": 26894.56, "recesa": 4910.0, "redelsa": 21984.56, "units": 790, "daily": 867.57, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 10710.7, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 200}, {"month": "Noviembre 2025", "total": 28729.46, "recesa": 4357.12, "redelsa": 24372.34, "units": 998, "daily": 957.65, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 11533.2, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 194}, {"month": "Diciembre 2025", "total": 195085.06, "recesa": 0.0, "redelsa": 195085.06, "units": 57711, "daily": 6293.07, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 35453.8, "topUnitsProduct": "ROLDANA F436 5/8", "topUnitsQty": 13020}, {"month": "Enero 2026", "total": 137408.91, "recesa": 0.0, "redelsa": 137408.91, "units": 12639, "daily": 4432.55, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 19774.54, "topUnitsProduct": "TUERCA HEX. A325 3/4", "topUnitsQty": 3246}, {"month": "Febrero 2026", "total": 190801.8, "recesa": 10115.0, "redelsa": 180686.8, "units": 37217, "daily": 6814.35, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 52560.92, "topUnitsProduct": "TORNILLO POLSER P/BROCA TROPICALIZADO1/4 X 1", "topUnitsQty": 24900}, {"month": "Marzo 2026", "total": 135104.12, "recesa": 40038.1, "redelsa": 95066.02, "units": 137987, "daily": 4358.2, "topValueProduct": "TORNILLO LAMINA 14 X 1 1/2", "topValueTotal": 30939.6, "topUnitsProduct": "TORNILLO LAMINA 14 X 1 1/2", "topUnitsQty": 134520}, {"month": "Abril 2026", "total": 258641.52, "recesa": 121814.7, "redelsa": 136826.82, "units": 66167, "daily": 8621.38, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 112680.1, "topUnitsProduct": "ROLDANA 3/8", "topUnitsQty": 8580}, {"month": "Mayo 2026", "total": 29133.91, "recesa": 2920.32, "redelsa": 26213.59, "units": 2353, "daily": 939.8, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 10228.2, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 984}], "bestMonth": "Abril 2026", "bestTotal": 258641.52, "periodLabel": "Mayo 2025 – Mayo 2026"};
 
 const YELLOW = '#F5C400';
 const GRAY = '#4A4A4A';
+
 let monthChart;
+let charts = [];
 
 function money(v){
   return 'Q' + Math.round(v).toLocaleString('en-US');
 }
 
+function compactMoney(v){
+  if(v >= 1000000) return 'Q' + (v/1000000).toFixed(2) + 'M';
+  if(v >= 1000) return 'Q' + Math.round(v/1000) + 'k';
+  return 'Q' + Math.round(v);
+}
+
+function getTextColor(){
+  return getComputedStyle(document.body).getPropertyValue('--text-primary').trim();
+}
+
+function getGridColor(){
+  return getComputedStyle(document.body).getPropertyValue('--grid').trim();
+}
+
+function chartDefaults(){
+  Chart.defaults.color = getTextColor();
+}
+
+function toggleDarkMode(){
+  document.body.classList.toggle('dark');
+  const btn = document.querySelector('.mode-btn');
+  btn.textContent = document.body.classList.contains('dark') ? 'Modo claro' : 'Modo noche';
+  renderAllCharts();
+}
+
 function showPage(page, event){
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-
   document.getElementById(page).classList.add('active');
   event.target.classList.add('active');
+
+  if(page === 'detail'){
+    setTimeout(() => {
+      if(monthChart) monthChart.resize();
+    }, 50);
+  }
+}
+
+function renderKpis(){
+  document.getElementById('kpiTotal').textContent = compactMoney(DASH.grandTotal);
+  document.getElementById('kpiUnits').textContent = DASH.grandUnits.toLocaleString('en-US');
+  document.getElementById('kpiBestMonth').textContent = DASH.bestMonth.replace(' 2026','').replace(' 2025','');
+  document.getElementById('kpiBestTotal').textContent = money(DASH.bestTotal);
+
+  const total = DASH.recesaTotal + DASH.redelsaTotal;
+  const recPct = total ? ((DASH.recesaTotal / total) * 100).toFixed(1) : 0;
+  const redPct = total ? ((DASH.redelsaTotal / total) * 100).toFixed(1) : 0;
+
+  document.getElementById('recesaTotal').textContent = money(DASH.recesaTotal);
+  document.getElementById('redelsaTotal').textContent = money(DASH.redelsaTotal);
+  document.getElementById('recesaUnits').textContent = DASH.recesaUnits.toLocaleString('en-US') + ' uds.';
+  document.getElementById('redelsaUnits').textContent = DASH.redelsaUnits.toLocaleString('en-US') + ' uds.';
+  document.getElementById('recesaPct').textContent = recPct + '%';
+  document.getElementById('redelsaPct').textContent = redPct + '%';
 }
 
 function renderProducts(){
   const container = document.getElementById('products');
-  const max = PRODUCTS[0].val;
+  container.innerHTML = '';
+  const max = DASH.products[0]?.val || 1;
 
-  PRODUCTS.forEach(p => {
+  DASH.products.forEach(p => {
     const pct = Math.round((p.val / max) * 100);
     const div = document.createElement('div');
     div.className = 'prod-item';
@@ -413,69 +458,109 @@ function renderProducts(){
   });
 }
 
-new Chart(document.getElementById('lineChart'), {
-  type:'line',
-  data:{
-    labels:MONTHS,
-    datasets:[{
-      data:DATA.totals,
-      borderColor:YELLOW,
-      backgroundColor:'rgba(245,196,0,.12)',
-      fill:true,
-      tension:.35,
-      pointBackgroundColor:YELLOW,
-      pointRadius:4,
-      borderWidth:2
-    }]
-  },
-  options:{
-    responsive:true,
-    maintainAspectRatio:false,
-    plugins:{
-      legend:{display:false},
-      tooltip:{callbacks:{label:(context)=>'Q'+context.raw.toLocaleString('en-US')}}
+function destroyCharts(){
+  charts.forEach(c => c.destroy());
+  charts = [];
+  if(monthChart) {
+    monthChart.destroy();
+    monthChart = null;
+  }
+}
+
+function renderAllCharts(){
+  destroyCharts();
+  chartDefaults();
+
+  const grid = getGridColor();
+
+  charts.push(new Chart(document.getElementById('lineChart'), {
+    type:'line',
+    data:{
+      labels:DASH.labels,
+      datasets:[{
+        data:DASH.totals,
+        borderColor:YELLOW,
+        backgroundColor:'rgba(245,196,0,.12)',
+        fill:true,
+        tension:.35,
+        pointBackgroundColor:YELLOW,
+        pointRadius:4,
+        borderWidth:2
+      }]
     },
-    scales:{
-      x:{grid:{display:false}},
-      y:{
-        ticks:{callback:(value)=>'Q'+(value/1000)+'k'},
-        grid:{color:'rgba(0,0,0,.08)'}
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:(context)=>money(context.raw)}}
+      },
+      scales:{
+        x:{grid:{display:false}},
+        y:{
+          ticks:{callback:(value)=>'Q'+(value/1000)+'k'},
+          grid:{color:grid}
+        }
       }
     }
-  }
-});
+  }));
 
-new Chart(document.getElementById('barChart'), {
-  type:'bar',
-  data:{
-    labels:MONTHS,
-    datasets:[
-      {label:'RECESA',data:DATA.recesa,backgroundColor:GRAY,borderRadius:4},
-      {label:'REDELSA',data:DATA.redelsa,backgroundColor:YELLOW,borderRadius:4}
-    ]
-  },
-  options:{
-    responsive:true,
-    maintainAspectRatio:false,
-    plugins:{
-      legend:{position:'top',align:'start'},
-      tooltip:{callbacks:{label:(context)=>context.dataset.label+': Q'+context.raw.toLocaleString('en-US')}}
+  charts.push(new Chart(document.getElementById('barChart'), {
+    type:'bar',
+    data:{
+      labels:DASH.labels,
+      datasets:[
+        {label:'RECESA',data:DASH.recesa,backgroundColor:GRAY,borderRadius:4},
+        {label:'REDELSA',data:DASH.redelsa,backgroundColor:YELLOW,borderRadius:4}
+      ]
     },
-    scales:{
-      x:{stacked:true,grid:{display:false}},
-      y:{stacked:true,ticks:{callback:(value)=>'Q'+(value/1000)+'k'},grid:{color:'rgba(0,0,0,.08)'}}
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'top',align:'start'},
+        tooltip:{callbacks:{label:(context)=>context.dataset.label+': '+money(context.raw)}}
+      },
+      scales:{
+        x:{stacked:true,grid:{display:false}},
+        y:{stacked:true,ticks:{callback:(value)=>'Q'+(value/1000)+'k'},grid:{color:grid}}
+      }
     }
-  }
-});
+  }));
 
-new Chart(document.getElementById('donutChart'), {
-  type:'doughnut',
-  data:{labels:['RECESA','REDELSA'],datasets:[{data:[181935,964992],backgroundColor:[GRAY,YELLOW],borderWidth:0}]},
-  options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'bottom'}}}
-});
+  charts.push(new Chart(document.getElementById('donutChart'), {
+    type:'doughnut',
+    data:{
+      labels:['RECESA','REDELSA'],
+      datasets:[{data:[DASH.recesaTotal,DASH.redelsaTotal],backgroundColor:[GRAY,YELLOW],borderWidth:0}]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      cutout:'68%',
+      plugins:{
+        legend:{position:'bottom'},
+        tooltip:{callbacks:{label:(context)=>context.label+': '+money(context.raw)}}
+      }
+    }
+  }));
+
+  renderMonthDetail(Number(document.getElementById('monthSelect').value || 0));
+}
+
+function renderMonthOptions(){
+  const select = document.getElementById('monthSelect');
+  select.innerHTML = '';
+  DASH.details.forEach((d, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = d.month;
+    select.appendChild(opt);
+  });
+}
 
 function renderMonthDetail(index){
-  const data = MONTH_DETAILS[index];
+  const data = DASH.details[index];
   const detail = document.getElementById('monthDetail');
   const avgUnit = data.units ? data.total / data.units : 0;
 
@@ -508,12 +593,13 @@ function renderMonthDetail(index){
     <div class="detail-card">
       <div class="detail-label">Top producto</div>
       <div class="detail-value" style="font-size:14px;line-height:1.2;">${data.topValueProduct}</div>
-      <div style="font-size:11px;color:#777;margin-top:4px;">${money(data.topValueTotal)}</div>
+      <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">${money(data.topValueTotal)}</div>
     </div>
   `;
 
   if(monthChart){monthChart.destroy();}
 
+  const grid = getGridColor();
   monthChart = new Chart(document.getElementById('monthChart'), {
     type:'bar',
     data:{
@@ -528,18 +614,20 @@ function renderMonthDetail(index){
       maintainAspectRatio:false,
       plugins:{
         legend:{position:'top',align:'start'},
-        tooltip:{callbacks:{label:(context)=>context.dataset.label+': Q'+context.raw.toLocaleString('en-US')}}
+        tooltip:{callbacks:{label:(context)=>context.dataset.label+': '+money(context.raw)}}
       },
       scales:{
         x:{stacked:true,grid:{display:false}},
-        y:{stacked:true,ticks:{callback:(value)=>'Q'+(value/1000)+'k'},grid:{color:'rgba(0,0,0,.08)'}}
+        y:{stacked:true,ticks:{callback:(value)=>'Q'+(value/1000)+'k'},grid:{color:grid}}
       }
     }
   });
 }
 
+renderKpis();
 renderProducts();
-renderMonthDetail(0);
+renderMonthOptions();
+renderAllCharts();
 
 document.getElementById('monthSelect').addEventListener('change', e => {
   renderMonthDetail(Number(e.target.value));
