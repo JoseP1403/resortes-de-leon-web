@@ -20,19 +20,21 @@
       --text-primary:#1a1a1a;
       --text-secondary:#6b6b68;
       --grid:rgba(0,0,0,.08);
-      --card-shadow:0 1px 2px rgba(0,0,0,.03);
+      --shadow:0 1px 2px rgba(0,0,0,.03);
     }
 
-    body.dark{
-      --bg:#121212;
-      --surface:#1e1e1e;
-      --surface-alt:#2a2a2a;
-      --border:rgba(255,255,255,.12);
-      --text-primary:#f1f1f1;
-      --text-secondary:#a9a9a9;
-      --grid:rgba(255,255,255,.12);
-      --black:#101010;
-      --card-shadow:0 1px 8px rgba(0,0,0,.25);
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#121212;
+        --surface:#1e1e1e;
+        --surface-alt:#2a2a2a;
+        --border:rgba(255,255,255,.12);
+        --text-primary:#f1f1f1;
+        --text-secondary:#a9a9a9;
+        --grid:rgba(255,255,255,.12);
+        --black:#101010;
+        --shadow:0 1px 8px rgba(0,0,0,.25);
+      }
     }
 
     body{
@@ -42,7 +44,6 @@
       max-width:900px;
       margin:auto;
       color:var(--text-primary);
-      transition:background .2s ease,color .2s ease;
     }
 
     .hdr{
@@ -77,21 +78,14 @@
       margin-top:4px;
     }
 
-    .top-row{
+    .tabs{
       display:flex;
-      justify-content:space-between;
-      align-items:center;
       gap:10px;
       margin-bottom:14px;
     }
 
-    .tabs{
-      display:flex;
-      gap:10px;
+    .tab-btn{
       flex:1;
-    }
-
-    .tab-btn,.mode-btn{
       border:none;
       padding:13px;
       border-radius:14px;
@@ -100,18 +94,12 @@
       font-weight:700;
       cursor:pointer;
       color:var(--text-primary);
-      box-shadow:var(--card-shadow);
+      box-shadow:var(--shadow);
     }
-
-    .tab-btn{flex:1}
 
     .tab-btn.active{
       background:var(--black);
       color:var(--yellow);
-    }
-
-    .mode-btn{
-      min-width:120px;
     }
 
     .page{display:none}
@@ -129,7 +117,7 @@
       padding:14px;
       border-radius:14px;
       border-left:4px solid var(--yellow);
-      box-shadow:var(--card-shadow);
+      box-shadow:var(--shadow);
     }
 
     .metric-label{
@@ -156,7 +144,7 @@
       padding:18px;
       margin-bottom:14px;
       border:1px solid var(--border);
-      box-shadow:var(--card-shadow);
+      box-shadow:var(--shadow);
     }
 
     .card-title{
@@ -244,7 +232,7 @@
 
     @media(max-width:700px){
       body{padding:16px}
-      .top-row{flex-direction:column;align-items:stretch}
+      .tabs{flex-direction:column}
       .metrics{grid-template-columns:repeat(2,1fr)}
       .empresa-row,.detail-grid{grid-template-columns:1fr}
       .prod-item{grid-template-columns:1fr;gap:5px}
@@ -265,12 +253,9 @@
   </div>
 </header>
 
-<div class="top-row">
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showPage('main', event)">Página principal</button>
-    <button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button>
-  </div>
-  <button class="mode-btn" onclick="toggleDarkMode()">Modo noche</button>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showPage('main', event)">Página principal</button>
+  <button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button>
 </div>
 
 <div id="main" class="page active">
@@ -372,11 +357,10 @@
 </div>
 
 <script>
-const DASH = {"labels": ["May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic", "Ene", "Feb", "Mar", "Abr", "May"], "fullLabels": ["Mayo 2025", "Junio 2025", "Julio 2025", "Agosto 2025", "Septiembre 2025", "Octubre 2025", "Noviembre 2025", "Diciembre 2025", "Enero 2026", "Febrero 2026", "Marzo 2026", "Abril 2026", "Mayo 2026"], "totals": [257.2, 16993.88, 64494.73, 51312.08, 50145.12, 26894.56, 28729.46, 195085.06, 137408.91, 190801.8, 135104.12, 258641.52, 29133.91], "units": [8, 224, 243, 787, 440, 790, 998, 57711, 12639, 37217, 137987, 66167, 2353], "recesa": [0.0, 0.0, 0.0, 0.0, 700.0, 4910.0, 4357.12, 0.0, 0.0, 10115.0, 40038.1, 121814.7, 2920.32], "redelsa": [257.2, 16993.88, 64494.73, 51312.08, 49445.12, 21984.56, 24372.34, 195085.06, 137408.91, 180686.8, 95066.02, 136826.82, 26213.59], "recesaTotal": 184855.24, "redelsaTotal": 1000147.11, "recesaUnits": 212104, "redelsaUnits": 105460, "grandTotal": 1185002.35, "grandUnits": 317564, "products": [{"name": "PERNO S/MUESTRA", "val": 283424.56}, {"name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "val": 45865.17}, {"name": "TORNILLO LAMINA 14 X 1 1/2", "val": 30939.6}, {"name": "TORNILLO HEX. A325 1 X 3 1/2", "val": 30906.08}, {"name": "TUERCA HEX. A325 5/8", "val": 26584.84}, {"name": "TUERCA HEX. A325 1.3/8", "val": 26250.0}, {"name": "BARRA LISA F1554/GR105 1\" X 6 MTS", "val": 24840.0}], "details": [{"month": "Mayo 2025", "total": 257.2, "recesa": 0.0, "redelsa": 257.2, "units": 8, "daily": 8.3, "topValueProduct": "TAPON PARA CANTER P/ HULE 641", "topValueTotal": 192.4, "topUnitsProduct": "BUSHING PLASTICO HU-641 (23037) AMBAR NKR-CANTER-DINA", "topUnitsQty": 4}, {"month": "Junio 2025", "total": 16993.88, "recesa": 0.0, "redelsa": 16993.88, "units": 224, "daily": 566.46, "topValueProduct": "RESORTE C TOYOTA TACOMA V-6 TRA. 23X29 C/J L/L (4HN+1AUX) (2RB-660)", "topValueTotal": 2670.17, "topUnitsProduct": "TORNILLO CENTRO 3/8 X 4", "topUnitsQty": 59}, {"month": "Julio 2025", "total": 64494.73, "recesa": 0.0, "redelsa": 64494.73, "units": 243, "daily": 2080.48, "topValueProduct": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "topValueTotal": 45865.17, "topUnitsProduct": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "topUnitsQty": 143}, {"month": "Agosto 2025", "total": 51312.08, "recesa": 0.0, "redelsa": 51312.08, "units": 787, "daily": 1655.23, "topValueProduct": "LANA CUADRADA 1/2 X 3 X 13 CON TUERCA", "topValueTotal": 5732.85, "topUnitsProduct": "KILOMETRO DE IDA / VUELTA", "topUnitsQty": 195}, {"month": "Septiembre 2025", "total": 50145.12, "recesa": 700.0, "redelsa": 49445.12, "units": 440, "daily": 1671.5, "topValueProduct": "RESORTE C INTER DEL 9HN+2PL (4X7/16 RO. 1.1/2)", "topValueTotal": 5202.0, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 50}, {"month": "Octubre 2025", "total": 26894.56, "recesa": 4910.0, "redelsa": 21984.56, "units": 790, "daily": 867.57, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 10710.7, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 200}, {"month": "Noviembre 2025", "total": 28729.46, "recesa": 4357.12, "redelsa": 24372.34, "units": 998, "daily": 957.65, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 11533.2, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 194}, {"month": "Diciembre 2025", "total": 195085.06, "recesa": 0.0, "redelsa": 195085.06, "units": 57711, "daily": 6293.07, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 35453.8, "topUnitsProduct": "ROLDANA F436 5/8", "topUnitsQty": 13020}, {"month": "Enero 2026", "total": 137408.91, "recesa": 0.0, "redelsa": 137408.91, "units": 12639, "daily": 4432.55, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 19774.54, "topUnitsProduct": "TUERCA HEX. A325 3/4", "topUnitsQty": 3246}, {"month": "Febrero 2026", "total": 190801.8, "recesa": 10115.0, "redelsa": 180686.8, "units": 37217, "daily": 6814.35, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 52560.92, "topUnitsProduct": "TORNILLO POLSER P/BROCA TROPICALIZADO1/4 X 1", "topUnitsQty": 24900}, {"month": "Marzo 2026", "total": 135104.12, "recesa": 40038.1, "redelsa": 95066.02, "units": 137987, "daily": 4358.2, "topValueProduct": "TORNILLO LAMINA 14 X 1 1/2", "topValueTotal": 30939.6, "topUnitsProduct": "TORNILLO LAMINA 14 X 1 1/2", "topUnitsQty": 134520}, {"month": "Abril 2026", "total": 258641.52, "recesa": 121814.7, "redelsa": 136826.82, "units": 66167, "daily": 8621.38, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 112680.1, "topUnitsProduct": "ROLDANA 3/8", "topUnitsQty": 8580}, {"month": "Mayo 2026", "total": 29133.91, "recesa": 2920.32, "redelsa": 26213.59, "units": 2353, "daily": 939.8, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 10228.2, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 984}], "bestMonth": "Abril 2026", "bestTotal": 258641.52, "periodLabel": "Mayo 2025 – Mayo 2026"};
+const DASH = {"labels": ["May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic", "Ene", "Feb", "Mar", "Abr", "May"], "fullLabels": ["Mayo 2025", "Junio 2025", "Julio 2025", "Agosto 2025", "Septiembre 2025", "Octubre 2025", "Noviembre 2025", "Diciembre 2025", "Enero 2026", "Febrero 2026", "Marzo 2026", "Abril 2026", "Mayo 2026"], "totals": [257.2, 16993.88, 64494.73, 51312.08, 50145.12, 26894.56, 28729.46, 195085.06, 137408.91, 190801.8, 135104.12, 258641.52, 46021.71], "units": [8, 224, 243, 787, 440, 790, 998, 57711, 12639, 37217, 137987, 66167, 2733], "recesa": [0.0, 0.0, 0.0, 0.0, 700.0, 4910.0, 4357.12, 0.0, 0.0, 10115.0, 40038.1, 121814.7, 1550.0], "redelsa": [257.2, 16993.88, 64494.73, 51312.08, 49445.12, 21984.56, 24372.34, 195085.06, 137408.91, 180686.8, 95066.02, 136826.82, 44471.71], "recesaTotal": 183484.92, "redelsaTotal": 1018405.23, "recesaUnits": 211728, "redelsaUnits": 106216, "grandTotal": 1201890.15, "grandUnits": 317944, "products": [{"name": "PERNO S/MUESTRA", "val": 283424.56}, {"name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "val": 45865.17}, {"name": "TORNILLO LAMINA 14 X 1 1/2", "val": 30939.6}, {"name": "TORNILLO HEX. A325 1 X 3 1/2", "val": 30906.08}, {"name": "TUERCA HEX. A325 5/8", "val": 26584.84}, {"name": "TUERCA HEX. A325 1.3/8", "val": 26250.0}, {"name": "BARRA LISA F1554/GR105 1\" X 6 MTS", "val": 24840.0}], "details": [{"month": "Mayo 2025", "total": 257.2, "recesa": 0.0, "redelsa": 257.2, "units": 8, "daily": 8.3, "topValueProduct": "TAPON PARA CANTER P/ HULE 641", "topValueTotal": 192.4, "topUnitsProduct": "BUSHING PLASTICO HU-641 (23037) AMBAR NKR-CANTER-DINA", "topUnitsQty": 4}, {"month": "Junio 2025", "total": 16993.88, "recesa": 0.0, "redelsa": 16993.88, "units": 224, "daily": 566.46, "topValueProduct": "RESORTE C TOYOTA TACOMA V-6 TRA. 23X29 C/J L/L (4HN+1AUX) (2RB-660)", "topValueTotal": 2670.17, "topUnitsProduct": "TORNILLO CENTRO 3/8 X 4", "topUnitsQty": 59}, {"month": "Julio 2025", "total": 64494.73, "recesa": 0.0, "redelsa": 64494.73, "units": 243, "daily": 2080.48, "topValueProduct": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "topValueTotal": 45865.17, "topUnitsProduct": "BARRA LISA F1554/GR55 25MM X 3.55 MTS", "topUnitsQty": 143}, {"month": "Agosto 2025", "total": 51312.08, "recesa": 0.0, "redelsa": 51312.08, "units": 787, "daily": 1655.23, "topValueProduct": "LANA CUADRADA 1/2 X 3 X 13 CON TUERCA", "topValueTotal": 5732.85, "topUnitsProduct": "KILOMETRO DE IDA / VUELTA", "topUnitsQty": 195}, {"month": "Septiembre 2025", "total": 50145.12, "recesa": 700.0, "redelsa": 49445.12, "units": 440, "daily": 1671.5, "topValueProduct": "RESORTE C INTER DEL 9HN+2PL (4X7/16 RO. 1.1/2)", "topValueTotal": 5202.0, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 50}, {"month": "Octubre 2025", "total": 26894.56, "recesa": 4910.0, "redelsa": 21984.56, "units": 790, "daily": 867.57, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 10710.7, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 200}, {"month": "Noviembre 2025", "total": 28729.46, "recesa": 4357.12, "redelsa": 24372.34, "units": 998, "daily": 957.65, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 11533.2, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 194}, {"month": "Diciembre 2025", "total": 195085.06, "recesa": 0.0, "redelsa": 195085.06, "units": 57711, "daily": 6293.07, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 35453.8, "topUnitsProduct": "ROLDANA F436 5/8", "topUnitsQty": 13020}, {"month": "Enero 2026", "total": 137408.91, "recesa": 0.0, "redelsa": 137408.91, "units": 12639, "daily": 4432.55, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 19774.54, "topUnitsProduct": "TUERCA HEX. A325 3/4", "topUnitsQty": 3246}, {"month": "Febrero 2026", "total": 190801.8, "recesa": 10115.0, "redelsa": 180686.8, "units": 37217, "daily": 6814.35, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 52560.92, "topUnitsProduct": "TORNILLO POLSER P/BROCA TROPICALIZADO1/4 X 1", "topUnitsQty": 24900}, {"month": "Marzo 2026", "total": 135104.12, "recesa": 40038.1, "redelsa": 95066.02, "units": 137987, "daily": 4358.2, "topValueProduct": "TORNILLO LAMINA 14 X 1 1/2", "topValueTotal": 30939.6, "topUnitsProduct": "TORNILLO LAMINA 14 X 1 1/2", "topUnitsQty": 134520}, {"month": "Abril 2026", "total": 258641.52, "recesa": 121814.7, "redelsa": 136826.82, "units": 66167, "daily": 8621.38, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 112680.1, "topUnitsProduct": "ROLDANA 3/8", "topUnitsQty": 8580}, {"month": "Mayo 2026", "total": 46021.71, "recesa": 1550.0, "redelsa": 44471.71, "units": 2733, "daily": 1484.57, "topValueProduct": "PERNO S/MUESTRA", "topValueTotal": 10228.2, "topUnitsProduct": "PERNO S/MUESTRA", "topUnitsQty": 984}], "bestMonth": "Abril 2026", "bestTotal": 258641.52, "periodLabel": "Mayo 2025 – Mayo 2026"};
 
 const YELLOW = '#F5C400';
 const GRAY = '#4A4A4A';
-
 let monthChart;
 let charts = [];
 
@@ -391,22 +375,11 @@ function compactMoney(v){
 }
 
 function getTextColor(){
-  return getComputedStyle(document.body).getPropertyValue('--text-primary').trim();
+  return getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim();
 }
 
 function getGridColor(){
-  return getComputedStyle(document.body).getPropertyValue('--grid').trim();
-}
-
-function chartDefaults(){
-  Chart.defaults.color = getTextColor();
-}
-
-function toggleDarkMode(){
-  document.body.classList.toggle('dark');
-  const btn = document.querySelector('.mode-btn');
-  btn.textContent = document.body.classList.contains('dark') ? 'Modo claro' : 'Modo noche';
-  renderAllCharts();
+  return getComputedStyle(document.documentElement).getPropertyValue('--grid').trim();
 }
 
 function showPage(page, event){
@@ -458,19 +431,8 @@ function renderProducts(){
   });
 }
 
-function destroyCharts(){
-  charts.forEach(c => c.destroy());
-  charts = [];
-  if(monthChart) {
-    monthChart.destroy();
-    monthChart = null;
-  }
-}
-
-function renderAllCharts(){
-  destroyCharts();
-  chartDefaults();
-
+function renderCharts(){
+  Chart.defaults.color = getTextColor();
   const grid = getGridColor();
 
   charts.push(new Chart(document.getElementById('lineChart'), {
@@ -544,8 +506,6 @@ function renderAllCharts(){
       }
     }
   }));
-
-  renderMonthDetail(Number(document.getElementById('monthSelect').value || 0));
 }
 
 function renderMonthOptions(){
@@ -627,10 +587,19 @@ function renderMonthDetail(index){
 renderKpis();
 renderProducts();
 renderMonthOptions();
-renderAllCharts();
+renderCharts();
+renderMonthDetail(0);
 
 document.getElementById('monthSelect').addEventListener('change', e => {
   renderMonthDetail(Number(e.target.value));
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  charts.forEach(c => c.destroy());
+  charts = [];
+  if(monthChart){monthChart.destroy(); monthChart = null;}
+  renderCharts();
+  renderMonthDetail(Number(document.getElementById('monthSelect').value || 0));
 });
 </script>
 
