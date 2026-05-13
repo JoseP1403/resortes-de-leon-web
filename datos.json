@@ -42,7 +42,7 @@
     190801.8,
     135104.12,
     258641.52,
-    46021.71
+    69783.29
   ],
   "units": [
     8,
@@ -57,7 +57,7 @@
     37217,
     137987,
     66167,
-    2733
+    8494
   ],
   "recesa": [
     0.0,
@@ -87,14 +87,14 @@
     180686.8,
     95066.02,
     136826.82,
-    44471.71
+    68233.29
   ],
   "recesaTotal": 183484.92,
-  "redelsaTotal": 1018405.23,
+  "redelsaTotal": 1042166.81,
   "recesaUnits": 211728,
-  "redelsaUnits": 106216,
-  "grandTotal": 1201890.15,
-  "grandUnits": 317944,
+  "redelsaUnits": 111977,
+  "grandTotal": 1225651.73,
+  "grandUnits": 323705,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
@@ -272,15 +272,15 @@
     },
     {
       "month": "Mayo 2026",
-      "total": 46021.71,
+      "total": 69783.29,
       "recesa": 1550.0,
-      "redelsa": 44471.71,
-      "units": 2733,
-      "daily": 1484.57,
+      "redelsa": 68233.29,
+      "units": 8494,
+      "daily": 2251.07,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 10228.2,
-      "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 984
+      "topUnitsProduct": "TUERCA HEX. A325 3/4",
+      "topUnitsQty": 1704
     }
   ],
   "bestMonth": "Abril 2026",
