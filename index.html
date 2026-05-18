@@ -18,8 +18,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .tab-btn{flex:1;border:none;padding:13px;border-radius:14px;background:var(--surface);border:1px solid var(--border);font-weight:700;cursor:pointer;color:var(--text-primary);box-shadow:var(--shadow)}
 .tab-btn.active{background:var(--black);color:var(--yellow)}
 .page{display:none}.page.active{display:block}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px;align-items:stretch}
-.metric{background:var(--surface);padding:14px;border-radius:14px;border-left:4px solid var(--yellow);box-shadow:var(--shadow)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px;align-items:stretch}
+.metric{background:var(--surface);padding:14px;border-radius:14px;border-left:4px solid var(--yellow);box-shadow:var(--shadow);min-width:0}
 .metric-label{font-size:11px;color:var(--text-secondary);margin-bottom:6px}
 .metric-value{font-size:18px;font-weight:700;color:var(--text-primary);line-height:1.1;word-break:break-word}
 .metric-sub{font-size:11px;color:var(--text-secondary);margin-top:4px}
@@ -29,73 +29,227 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;ba
 .chart-wrap{height:260px}
 .empresa-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
 .emp-card{background:var(--surface-alt);border-radius:14px;padding:14px}
-.emp-name{font-size:12px;font-weight:700;margin-bottom:5px}.emp-total{font-size:20px;font-weight:700}.emp-qty{font-size:12px;color:var(--text-secondary)}
+.emp-name{font-size:12px;font-weight:700;margin-bottom:5px}
+.emp-total{font-size:20px;font-weight:700}
+.emp-qty{font-size:12px;color:var(--text-secondary)}
 .emp-pct{display:inline-block;margin-top:6px;background:var(--yellow);padding:3px 8px;border-radius:20px;font-size:11px;font-weight:700;color:#1a1a1a}
 .prod-item{display:grid;grid-template-columns:1fr 100px 45px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;color:var(--text-primary)}
-.prod-bar-wrap{height:6px;background:var(--surface-alt);border-radius:10px;overflow:hidden}.prod-bar{height:100%;background:var(--yellow);border-radius:10px}.prod-val{text-align:right;color:var(--text-secondary);font-size:11px}
-.social-card{text-align:center}.social-buttons{display:flex;flex-direction:column;gap:12px;margin-top:14px}.social-btn{text-decoration:none;padding:15px;border-radius:14px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text-primary);background:var(--surface-alt);transition:.2s ease}.social-btn:hover{transform:translateY(-2px);border-color:var(--yellow)}.facebook{border-left:4px solid var(--yellow)}.instagram{border-left:4px solid #c7a000}.whatsapp{border-left:4px solid #8c8c8c}
+.prod-bar-wrap{height:6px;background:var(--surface-alt);border-radius:10px;overflow:hidden}
+.prod-bar{height:100%;background:var(--yellow);border-radius:10px}
+.prod-val{text-align:right;color:var(--text-secondary);font-size:11px}
+.social-card{text-align:center}
+.social-buttons{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.social-btn{text-decoration:none;padding:15px;border-radius:14px;font-size:14px;font-weight:600;border:1px solid var(--border);color:var(--text-primary);background:var(--surface-alt);transition:.2s ease}
+.social-btn:hover{transform:translateY(-2px);border-color:var(--yellow)}
+.facebook{border-left:4px solid var(--yellow)}
+.instagram{border-left:4px solid #c7a000}
+.whatsapp{border-left:4px solid #8c8c8c}
 .month-select{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--surface-alt);color:var(--text-primary);font-size:13px;outline:none;margin-bottom:16px}
 .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .detail-card{background:var(--surface-alt);border-radius:14px;padding:14px}
-.detail-label{font-size:11px;color:var(--text-secondary);margin-bottom:5px}.detail-value{font-size:22px;font-weight:700;color:var(--text-primary)}
+.detail-label{font-size:11px;color:var(--text-secondary);margin-bottom:5px}
+.detail-value{font-size:22px;font-weight:700;color:var(--text-primary)}
 @media(max-width:700px){body{padding:16px}.tabs{flex-direction:column}.metrics{grid-template-columns:repeat(2,1fr)}.empresa-row,.detail-grid{grid-template-columns:1fr}.prod-item{grid-template-columns:1fr;gap:5px}.prod-val{text-align:left}.hdr-logo{width:62px;height:62px}.hdr-title{font-size:14px}}
-.metrics{
-  display:grid !important;
-  grid-template-columns:repeat(4, 1fr) !important;
-  gap:12px !important;
-  margin-bottom:14px !important;
-}
-
-.metric{
-  min-width:0 !important;
-  height:100% !important;
-}
-
-.metric-value{
-  font-size:20px !important;
-  line-height:1.1 !important;
-  word-break:break-word !important;
-}
-
-@media(max-width:700px){
-  .metrics{
-    grid-template-columns:repeat(4, 1fr) !important;
-  }
-
-  .metric-value{
-    font-size:17px !important;
-  }
-}
 </style>
 </head>
 <body>
-<header class="hdr"><img src="logo-resortes.png" alt="Logo Resortes de León" class="hdr-logo"><div><div class="hdr-title">Análisis Redes Sociales Resortes de León</div><div class="hdr-sub" id="periodLabel">Ventas</div></div></header>
-<div class="tabs"><button class="tab-btn active" onclick="showPage('main', event)">Página principal</button><button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button></div>
-<div id="main" class="page active">
-<div class="metric"><div class="metric-label">Ventas Totales</div><div class="metric-value" id="kpiTotal"></div><div class="metric-sub">Acumulado</div></div><div class="metric"><div class="metric-label">Unidades</div><div class="metric-value" id="kpiUnits"></div><div class="metric-sub">Piezas vendidas</div></div><div class="metric"><div class="metric-label">Mejor mes</div><div class="metric-value" id="kpiBestMonth"></div><div class="metric-sub" id="kpiBestTotal"></div></div><div class="metric"><div class="metric-label">Top categoría</div><div class="metric-value" id="topCategory"></div><div class="metric-sub" id="topCategoryUnits"></div></div><div class="card"><div class="card-title">Ventas mensuales</div><div class="card-sub" id="lineSub"></div><div class="chart-wrap"><canvas id="lineChart"></canvas></div></div>
-<div class="card"><div class="card-title">RECESA vs REDELSA</div><div class="chart-wrap"><canvas id="barChart"></canvas></div></div>
-<div class="card"><div class="card-title">Participación por empresa</div><div class="card-sub">% del total de ventas</div><div class="empresa-row"><div class="emp-card"><div class="emp-name">RECESA</div><div class="emp-total" id="recesaTotal"></div><div class="emp-qty" id="recesaUnits"></div><span class="emp-pct" id="recesaPct"></span></div><div class="emp-card"><div class="emp-name">REDELSA</div><div class="emp-total" id="redelsaTotal"></div><div class="emp-qty" id="redelsaUnits"></div><span class="emp-pct" id="redelsaPct"></span></div></div><div class="chart-wrap" style="height:220px;"><canvas id="donutChart"></canvas></div></div>
-<div class="card"><div class="card-title">Top 7 productos</div><div class="card-sub">Por ventas acumuladas</div><div id="products"></div></div>
-<div class="card social-card"><div class="card-title">Redes Sociales Resortes De Leon</div><div class="social-buttons"><a href="https://www.facebook.com/profile.php?id=61575572460011#" target="_blank" class="social-btn facebook">Facebook</a><a href="https://www.instagram.com/resortesdeleon?igsh=MWl6NmFqOWFxNTU5Mw==" target="_blank" class="social-btn instagram">Instagram</a><a href="https://wa.me/50245445695" target="_blank" class="social-btn whatsapp">WhatsApp</a></div></div>
+
+<header class="hdr">
+<img src="logo-resortes.png" alt="Logo Resortes de León" class="hdr-logo">
+<div>
+<div class="hdr-title">Análisis Redes Sociales Resortes de León</div>
+<div class="hdr-sub" id="periodLabel">Ventas</div>
 </div>
-<div id="detail" class="page"><div class="card"><div class="card-title">Desglose por mes</div><div class="card-sub">Selecciona un mes para ver el detalle</div><select id="monthSelect" class="month-select"></select><div id="monthDetail" class="detail-grid"></div></div><div class="card"><div class="card-title">Ventas del mes seleccionado</div><div class="card-sub">Gráfica apilada por empresa</div><div class="chart-wrap"><canvas id="monthChart"></canvas></div></div></div>
+</header>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="showPage('main', event)">Página principal</button>
+<button class="tab-btn" onclick="showPage('detail', event)">Desglose mensual</button>
+</div>
+
+<div id="main" class="page active">
+
+<section class="metrics">
+<div class="metric"><div class="metric-label">Ventas Totales</div><div class="metric-value" id="kpiTotal"></div><div class="metric-sub">Acumulado</div></div>
+<div class="metric"><div class="metric-label">Unidades</div><div class="metric-value" id="kpiUnits"></div><div class="metric-sub">Piezas vendidas</div></div>
+<div class="metric"><div class="metric-label">Mejor mes</div><div class="metric-value" id="kpiBestMonth"></div><div class="metric-sub" id="kpiBestTotal"></div></div>
+<div class="metric"><div class="metric-label">Top categoría</div><div class="metric-value" id="topCategory"></div><div class="metric-sub" id="topCategoryUnits"></div></div>
+</section>
+
+<div class="card">
+<div class="card-title">Ventas mensuales</div>
+<div class="card-sub" id="lineSub"></div>
+<div class="chart-wrap"><canvas id="lineChart"></canvas></div>
+</div>
+
+<div class="card">
+<div class="card-title">RECESA vs REDELSA</div>
+<div class="chart-wrap"><canvas id="barChart"></canvas></div>
+</div>
+
+<div class="card">
+<div class="card-title">Participación por empresa</div>
+<div class="card-sub">% del total de ventas</div>
+<div class="empresa-row">
+<div class="emp-card"><div class="emp-name">RECESA</div><div class="emp-total" id="recesaTotal"></div><div class="emp-qty" id="recesaUnits"></div><span class="emp-pct" id="recesaPct"></span></div>
+<div class="emp-card"><div class="emp-name">REDELSA</div><div class="emp-total" id="redelsaTotal"></div><div class="emp-qty" id="redelsaUnits"></div><span class="emp-pct" id="redelsaPct"></span></div>
+</div>
+<div class="chart-wrap" style="height:220px;"><canvas id="donutChart"></canvas></div>
+</div>
+
+<div class="card">
+<div class="card-title">Top 7 productos</div>
+<div class="card-sub">Por ventas acumuladas</div>
+<div id="products"></div>
+</div>
+
+<div class="card social-card">
+<div class="card-title">Redes Sociales Resortes De Leon</div>
+<div class="social-buttons">
+<a href="https://www.facebook.com/profile.php?id=61575572460011#" target="_blank" class="social-btn facebook">Facebook</a>
+<a href="https://www.instagram.com/resortesdeleon?igsh=MWl6NmFqOWFxNTU5Mw==" target="_blank" class="social-btn instagram">Instagram</a>
+<a href="https://wa.me/50245445695" target="_blank" class="social-btn whatsapp">WhatsApp</a>
+</div>
+</div>
+
+</div>
+
+<div id="detail" class="page">
+<div class="card">
+<div class="card-title">Desglose por mes</div>
+<div class="card-sub">Selecciona un mes para ver el detalle</div>
+<select id="monthSelect" class="month-select"></select>
+<div id="monthDetail" class="detail-grid"></div>
+</div>
+
+<div class="card">
+<div class="card-title">Ventas del mes seleccionado</div>
+<div class="card-sub">Gráfica apilada por empresa</div>
+<div class="chart-wrap"><canvas id="monthChart"></canvas></div>
+</div>
+</div>
+
 <script>
 let DASH=null, monthChart, charts=[];
 const YELLOW='#F5C400', GRAY='#4A4A4A';
-async function loadData(){const r=await fetch('datos.json?ts='+Date.now());DASH=await r.json();renderKpis();renderProducts();renderMonthOptions();renderCharts();renderMonthDetail(0);}
+
+async function loadData(){
+const r=await fetch('datos.json?ts='+Date.now());
+DASH=await r.json();
+renderKpis();
+renderProducts();
+renderMonthOptions();
+renderCharts();
+renderMonthDetail(0);
+}
+
 function money(v){return 'Q'+Math.round(v).toLocaleString('en-US')}
 function compactMoney(v){if(v>=1000000)return 'Q'+(v/1000000).toFixed(2)+'M';if(v>=1000)return 'Q'+Math.round(v/1000)+'k';return 'Q'+Math.round(v)}
 function getTextColor(){return getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim()}
 function getGridColor(){return getComputedStyle(document.documentElement).getPropertyValue('--grid').trim()}
-function showPage(page,event){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById(page).classList.add('active');event.target.classList.add('active');if(page==='detail'){setTimeout(()=>{if(monthChart)monthChart.resize()},50)}}
-function renderKpis(){document.getElementById('periodLabel').textContent='Ventas · '+DASH.periodLabel;document.getElementById('lineSub').textContent='Evolución '+DASH.periodLabel.toLowerCase();document.getElementById('kpiTotal').textContent=compactMoney(DASH.grandTotal);document.getElementById('kpiUnits').textContent=DASH.grandUnits.toLocaleString('en-US');document.getElementById('kpiBestMonth').textContent=DASH.bestMonth.replace(' 2026','').replace(' 2025','');document.getElementById('kpiBestTotal').textContent=money(DASH.bestTotal);const total=DASH.recesaTotal+DASH.redelsaTotal;document.getElementById('recesaTotal').textContent=money(DASH.recesaTotal);document.getElementById('redelsaTotal').textContent=money(DASH.redelsaTotal);document.getElementById('recesaUnits').textContent=DASH.recesaUnits.toLocaleString('en-US')+' uds.';document.getElementById('redelsaUnits').textContent=DASH.redelsaUnits.toLocaleString('en-US')+' uds.';document.getElementById('recesaPct').textContent=(total?((DASH.recesaTotal/total)*100).toFixed(1):0)+'%';document.getElementById('redelsaPct').textContent=(total?((DASH.redelsaTotal/total)*100).toFixed(1):0)+'%';document.getElementById('topCategory').textContent=DASH.topCategory;document.getElementById('topCategoryUnits').textContent=DASH.topCategoryUnits.toLocaleString('en-US')+' uds.'}
-function renderProducts(){const c=document.getElementById('products');c.innerHTML='';const max=DASH.products[0]?.val||1;DASH.products.forEach(p=>{const pct=Math.round((p.val/max)*100);const d=document.createElement('div');d.className='prod-item';d.innerHTML=`<div>${p.name}</div><div class="prod-bar-wrap"><div class="prod-bar" style="width:${pct}%"></div></div><div class="prod-val">Q${Math.round(p.val/1000)}k</div>`;c.appendChild(d)})}
-function renderCharts(){Chart.defaults.color=getTextColor();const grid=getGridColor();charts.forEach(c=>c.destroy());charts=[];charts.push(new Chart(document.getElementById('lineChart'),{type:'line',data:{labels:DASH.labels,datasets:[{data:DASH.totals,borderColor:YELLOW,backgroundColor:'rgba(245,196,0,.12)',fill:true,tension:.35,pointBackgroundColor:YELLOW,pointRadius:4,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>money(c.raw)}}},scales:{x:{grid:{display:false}},y:{ticks:{callback:(v)=>'Q'+(v/1000)+'k'},grid:{color:grid}}}}}));charts.push(new Chart(document.getElementById('barChart'),{type:'bar',data:{labels:DASH.labels,datasets:[{label:'RECESA',data:DASH.recesa,backgroundColor:GRAY,borderRadius:4},{label:'REDELSA',data:DASH.redelsa,backgroundColor:YELLOW,borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'start'},tooltip:{callbacks:{label:(c)=>c.dataset.label+': '+money(c.raw)}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:(v)=>'Q'+(v/1000)+'k'},grid:{color:grid}}}}}));charts.push(new Chart(document.getElementById('donutChart'),{type:'doughnut',data:{labels:['RECESA','REDELSA'],datasets:[{data:[DASH.recesaTotal,DASH.redelsaTotal],backgroundColor:[GRAY,YELLOW],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:(c)=>c.label+': '+money(c.raw)}}}}}))}
-function renderMonthOptions(){const s=document.getElementById('monthSelect');s.innerHTML='';DASH.details.forEach((d,i)=>{const o=document.createElement('option');o.value=i;o.textContent=d.month;s.appendChild(o)})}
-function renderMonthDetail(i){const data=DASH.details[i], detail=document.getElementById('monthDetail'), avgUnit=data.units?data.total/data.units:0;detail.innerHTML=`<div class="detail-card"><div class="detail-label">Mes</div><div class="detail-value" style="font-size:18px;">${data.month}</div></div><div class="detail-card"><div class="detail-label">Venta mes</div><div class="detail-value">${money(data.total)}</div></div><div class="detail-card"><div class="detail-label">Venta en cantidad</div><div class="detail-value">${data.units.toLocaleString('en-US')}</div></div><div class="detail-card"><div class="detail-label">Promedio de venta</div><div class="detail-value">${money(avgUnit)}</div></div><div class="detail-card"><div class="detail-label">Venta diaria</div><div class="detail-value">${money(data.daily)}</div></div><div class="detail-card"><div class="detail-label">Top producto</div><div class="detail-value" style="font-size:14px;line-height:1.2;">${data.topValueProduct}</div><div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">${money(data.topValueTotal)}</div></div>`;if(monthChart)monthChart.destroy();const grid=getGridColor();monthChart=new Chart(document.getElementById('monthChart'),{type:'bar',data:{labels:['Ventas'],datasets:[{label:'RECESA',data:[data.recesa],backgroundColor:GRAY,borderRadius:6},{label:'REDELSA',data:[data.redelsa],backgroundColor:YELLOW,borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'start'},tooltip:{callbacks:{label:(c)=>c.dataset.label+': '+money(c.raw)}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:(v)=>'Q'+(v/1000)+'k'},grid:{color:grid}}}}})}
+
+function showPage(page,event){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+document.getElementById(page).classList.add('active');
+event.target.classList.add('active');
+if(page==='detail'){setTimeout(()=>{if(monthChart)monthChart.resize()},50)}
+}
+
+function renderKpis(){
+document.getElementById('periodLabel').textContent='Ventas · '+DASH.periodLabel;
+document.getElementById('lineSub').textContent='Evolución '+DASH.periodLabel.toLowerCase();
+document.getElementById('kpiTotal').textContent=compactMoney(DASH.grandTotal);
+document.getElementById('kpiUnits').textContent=DASH.grandUnits.toLocaleString('en-US');
+document.getElementById('kpiBestMonth').textContent=DASH.bestMonth.replace(' 2026','').replace(' 2025','');
+document.getElementById('kpiBestTotal').textContent=money(DASH.bestTotal);
+
+const total=DASH.recesaTotal+DASH.redelsaTotal;
+
+document.getElementById('recesaTotal').textContent=money(DASH.recesaTotal);
+document.getElementById('redelsaTotal').textContent=money(DASH.redelsaTotal);
+document.getElementById('recesaUnits').textContent=DASH.recesaUnits.toLocaleString('en-US')+' uds.';
+document.getElementById('redelsaUnits').textContent=DASH.redelsaUnits.toLocaleString('en-US')+' uds.';
+document.getElementById('recesaPct').textContent=(total?((DASH.recesaTotal/total)*100).toFixed(1):0)+'%';
+document.getElementById('redelsaPct').textContent=(total?((DASH.redelsaTotal/total)*100).toFixed(1):0)+'%';
+
+document.getElementById('topCategory').textContent=DASH.topCategory || '-';
+document.getElementById('topCategoryUnits').textContent=(DASH.topCategoryUnits || 0).toLocaleString('en-US')+' uds.';
+}
+
+function renderProducts(){
+const c=document.getElementById('products');
+c.innerHTML='';
+const max=DASH.products[0]?.val||1;
+DASH.products.forEach(p=>{
+const pct=Math.round((p.val/max)*100);
+const d=document.createElement('div');
+d.className='prod-item';
+d.innerHTML=`<div>${p.name}</div><div class="prod-bar-wrap"><div class="prod-bar" style="width:${pct}%"></div></div><div class="prod-val">Q${Math.round(p.val/1000)}k</div>`;
+c.appendChild(d);
+});
+}
+
+function renderCharts(){
+Chart.defaults.color=getTextColor();
+const grid=getGridColor();
+charts.forEach(c=>c.destroy());
+charts=[];
+
+charts.push(new Chart(document.getElementById('lineChart'),{
+type:'line',
+data:{labels:DASH.labels,datasets:[{data:DASH.totals,borderColor:YELLOW,backgroundColor:'rgba(245,196,0,.12)',fill:true,tension:.35,pointBackgroundColor:YELLOW,pointRadius:4,borderWidth:2}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:(c)=>money(c.raw)}}},scales:{x:{grid:{display:false}},y:{ticks:{callback:(v)=>'Q'+(v/1000)+'k'},grid:{color:grid}}}}
+}));
+
+charts.push(new Chart(document.getElementById('barChart'),{
+type:'bar',
+data:{labels:DASH.labels,datasets:[{label:'RECESA',data:DASH.recesa,backgroundColor:GRAY,borderRadius:4},{label:'REDELSA',data:DASH.redelsa,backgroundColor:YELLOW,borderRadius:4}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'start'},tooltip:{callbacks:{label:(c)=>c.dataset.label+': '+money(c.raw)}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:(v)=>'Q'+(v/1000)+'k'},grid:{color:grid}}}}
+}));
+
+charts.push(new Chart(document.getElementById('donutChart'),{
+type:'doughnut',
+data:{labels:['RECESA','REDELSA'],datasets:[{data:[DASH.recesaTotal,DASH.redelsaTotal],backgroundColor:[GRAY,YELLOW],borderWidth:0}]},
+options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:(c)=>c.label+': '+money(c.raw)}}}}
+}));
+}
+
+function renderMonthOptions(){
+const s=document.getElementById('monthSelect');
+s.innerHTML='';
+DASH.details.forEach((d,i)=>{
+const o=document.createElement('option');
+o.value=i;
+o.textContent=d.month;
+s.appendChild(o);
+});
+}
+
+function renderMonthDetail(i){
+const data=DASH.details[i], detail=document.getElementById('monthDetail'), avgUnit=data.units?data.total/data.units:0;
+
+detail.innerHTML=`<div class="detail-card"><div class="detail-label">Mes</div><div class="detail-value" style="font-size:18px;">${data.month}</div></div><div class="detail-card"><div class="detail-label">Venta mes</div><div class="detail-value">${money(data.total)}</div></div><div class="detail-card"><div class="detail-label">Venta en cantidad</div><div class="detail-value">${data.units.toLocaleString('en-US')}</div></div><div class="detail-card"><div class="detail-label">Promedio de venta</div><div class="detail-value">${money(avgUnit)}</div></div><div class="detail-card"><div class="detail-label">Venta diaria</div><div class="detail-value">${money(data.daily)}</div></div><div class="detail-card"><div class="detail-label">Top producto</div><div class="detail-value" style="font-size:14px;line-height:1.2;">${data.topValueProduct}</div><div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">${money(data.topValueTotal)}</div></div>`;
+
+if(monthChart)monthChart.destroy();
+const grid=getGridColor();
+
+monthChart=new Chart(document.getElementById('monthChart'),{
+type:'bar',
+data:{labels:['Ventas'],datasets:[{label:'RECESA',data:[data.recesa],backgroundColor:GRAY,borderRadius:6},{label:'REDELSA',data:[data.redelsa],backgroundColor:YELLOW,borderRadius:6}]},
+options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'start'},tooltip:{callbacks:{label:(c)=>c.dataset.label+': '+money(c.raw)}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:(v)=>'Q'+(v/1000)+'k'},grid:{color:grid}}}}
+});
+}
+
 document.getElementById('monthSelect').addEventListener('change',e=>renderMonthDetail(Number(e.target.value)));
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{renderCharts();renderMonthDetail(Number(document.getElementById('monthSelect').value||0))});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{
+renderCharts();
+renderMonthDetail(Number(document.getElementById('monthSelect').value||0));
+});
+
 loadData();
 </script>
+
 </body>
 </html>
