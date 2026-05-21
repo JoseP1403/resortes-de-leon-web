@@ -34,45 +34,45 @@
     16993.88,
     64494.73,
     51312.08,
-    49453.12,
-    22362.56,
-    24624.34,
+    50145.12,
+    26894.56,
+    28729.46,
     195085.06,
     137408.91,
-    212586.8,
-    229941.02,
-    181041.82,
-    93513.22
+    190801.8,
+    135104.12,
+    258641.52,
+    94963.22
   ],
   "units": [
     8,
     224,
     243,
     787,
-    588,
-    466,
-    939,
+    440,
+    790,
+    998,
     57711,
     12639,
-    5317,
-    3207,
-    22100,
-    10160
+    37217,
+    137987,
+    66167,
+    10246
   ],
   "recesa": [
     0.0,
     0.0,
     0.0,
     0.0,
-    8.0,
-    378.0,
-    252.0,
+    700.0,
+    4910.0,
+    4357.12,
     0.0,
     0.0,
-    31900.0,
-    134875.0,
-    44215.0,
-    100.0
+    10115.0,
+    40038.1,
+    121814.7,
+    1550.0
   ],
   "redelsa": [
     257.2,
@@ -89,26 +89,26 @@
     136826.82,
     93413.22
   ],
-  "recesaTotal": 211728.0,
+  "recesaTotal": 183484.92,
   "redelsaTotal": 1067346.74,
-  "recesaUnits": 662,
+  "recesaUnits": 211728,
   "redelsaUnits": 113729,
-  "grandTotal": 1279074.74,
-  "grandUnits": 114389,
+  "grandTotal": 1250831.66,
+  "grandUnits": 325457,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 103241,
+  "topCategoryUnits": 313683,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 196335.56
-    },
-    {
-      "name": "TORNILLO LAMINA 14 X 1 1/2",
-      "val": 134520.0
+      "val": 299505.46
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
       "val": 45865.17
+    },
+    {
+      "name": "TORNILLO LAMINA 14 X 1 1/2",
+      "val": 30939.6
     },
     {
       "name": "TORNILLO HEX. A325 1 X 3 1/2",
@@ -116,15 +116,15 @@
     },
     {
       "name": "TUERCA HEX. A325 5/8",
-      "val": 26536.04
+      "val": 26584.84
     },
     {
       "name": "TUERCA HEX. A325 1.3/8",
       "val": 26250.0
     },
     {
-      "name": "TORNILLO POLSER P/BROCA TROPICALIZADO1/4 X 1",
-      "val": 24900.0
+      "name": "BARRA LISA F1554/GR105 1\" X 6 MTS",
+      "val": 24840.0
     }
   ],
   "details": [
@@ -178,39 +178,39 @@
     },
     {
       "month": "Septiembre 2025",
-      "total": 49453.12,
-      "recesa": 8.0,
+      "total": 50145.12,
+      "recesa": 700.0,
       "redelsa": 49445.12,
-      "units": 588,
-      "daily": 1648.44,
+      "units": 440,
+      "daily": 1671.5,
       "topValueProduct": "RESORTE C INTER DEL 9HN+2PL (4X7/16 RO. 1.1/2)",
       "topValueTotal": 5202.0,
-      "topUnitsProduct": "PERNO DE ANCLAJE R.O.G.5 1 X 9 X 3 TIPO J",
-      "topUnitsQty": 143
+      "topUnitsProduct": "PERNO S/MUESTRA",
+      "topUnitsQty": 50
     },
     {
       "month": "Octubre 2025",
-      "total": 22362.56,
-      "recesa": 378.0,
+      "total": 26894.56,
+      "recesa": 4910.0,
       "redelsa": 21984.56,
-      "units": 466,
-      "daily": 721.37,
+      "units": 790,
+      "daily": 867.57,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 8093.2,
+      "topValueTotal": 10710.7,
       "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 124
+      "topUnitsQty": 200
     },
     {
       "month": "Noviembre 2025",
-      "total": 24624.34,
-      "recesa": 252.0,
+      "total": 28729.46,
+      "recesa": 4357.12,
       "redelsa": 24372.34,
-      "units": 939,
-      "daily": 820.81,
+      "units": 998,
+      "daily": 957.65,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 7569.2,
+      "topValueTotal": 11533.2,
       "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 352
+      "topUnitsQty": 194
     },
     {
       "month": "Diciembre 2025",
@@ -238,54 +238,54 @@
     },
     {
       "month": "Febrero 2026",
-      "total": 212586.8,
-      "recesa": 31900.0,
+      "total": 190801.8,
+      "recesa": 10115.0,
       "redelsa": 180686.8,
-      "units": 5317,
-      "daily": 7592.39,
+      "units": 37217,
+      "daily": 6814.35,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 52560.92,
-      "topUnitsProduct": "TUERCA HEX. A325 1.3/8",
-      "topUnitsQty": 600
+      "topUnitsProduct": "TORNILLO POLSER P/BROCA TROPICALIZADO1/4 X 1",
+      "topUnitsQty": 24900
     },
     {
       "month": "Marzo 2026",
-      "total": 229941.02,
-      "recesa": 134875.0,
+      "total": 135104.12,
+      "recesa": 40038.1,
       "redelsa": 95066.02,
-      "units": 3207,
-      "daily": 7417.45,
+      "units": 137987,
+      "daily": 4358.2,
       "topValueProduct": "TORNILLO LAMINA 14 X 1 1/2",
-      "topValueTotal": 134520.0,
-      "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 538
+      "topValueTotal": 30939.6,
+      "topUnitsProduct": "TORNILLO LAMINA 14 X 1 1/2",
+      "topUnitsQty": 134520
     },
     {
       "month": "Abril 2026",
-      "total": 181041.82,
-      "recesa": 44215.0,
+      "total": 258641.52,
+      "recesa": 121814.7,
       "redelsa": 136826.82,
-      "units": 22100,
-      "daily": 6034.73,
+      "units": 66167,
+      "daily": 8621.38,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 24081.7,
-      "topUnitsProduct": "ROLDANA F436 5/8",
-      "topUnitsQty": 3062
+      "topValueTotal": 112680.1,
+      "topUnitsProduct": "ROLDANA 3/8",
+      "topUnitsQty": 8580
     },
     {
       "month": "Mayo 2026",
-      "total": 93513.22,
-      "recesa": 100.0,
+      "total": 94963.22,
+      "recesa": 1550.0,
       "redelsa": 93413.22,
-      "units": 10160,
-      "daily": 3016.56,
+      "units": 10246,
+      "daily": 3063.33,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 26309.1,
       "topUnitsProduct": "TUERCA HEX. A325 3/4",
       "topUnitsQty": 1764
     }
   ],
-  "bestMonth": "Marzo 2026",
-  "bestTotal": 229941.02,
+  "bestMonth": "Abril 2026",
+  "bestTotal": 258641.52,
   "periodLabel": "Mayo 2025 – Mayo 2026"
 }
