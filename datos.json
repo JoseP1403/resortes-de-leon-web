@@ -42,7 +42,7 @@
     190801.8,
     135104.12,
     258641.52,
-    94963.22
+    112965.92
   ],
   "units": [
     8,
@@ -57,7 +57,7 @@
     37217,
     137987,
     66167,
-    10246
+    10876
   ],
   "recesa": [
     0.0,
@@ -87,20 +87,20 @@
     180686.8,
     95066.02,
     136826.82,
-    93413.22
+    111415.92
   ],
   "recesaTotal": 183484.92,
-  "redelsaTotal": 1067346.74,
+  "redelsaTotal": 1085349.44,
   "recesaUnits": 211728,
-  "redelsaUnits": 113729,
-  "grandTotal": 1250831.66,
-  "grandUnits": 325457,
+  "redelsaUnits": 114359,
+  "grandTotal": 1268834.36,
+  "grandUnits": 326087,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 313683,
+  "topCategoryUnits": 314163,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 299505.46
+      "val": 315586.36
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -123,8 +123,8 @@
       "val": 26250.0
     },
     {
-      "name": "BARRA LISA F1554/GR105 1\" X 6 MTS",
-      "val": 24840.0
+      "name": "TUERCA HEX. A325 1\"",
+      "val": 25300.59
     }
   ],
   "details": [
@@ -274,15 +274,15 @@
     },
     {
       "month": "Mayo 2026",
-      "total": 94963.22,
+      "total": 112965.92,
       "recesa": 1550.0,
-      "redelsa": 93413.22,
-      "units": 10246,
-      "daily": 3063.33,
+      "redelsa": 111415.92,
+      "units": 10876,
+      "daily": 3644.06,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 26309.1,
+      "topValueTotal": 42390.0,
       "topUnitsProduct": "TUERCA HEX. A325 3/4",
-      "topUnitsQty": 1764
+      "topUnitsQty": 1824
     }
   ],
   "bestMonth": "Abril 2026",
