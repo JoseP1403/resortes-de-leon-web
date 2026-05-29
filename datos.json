@@ -42,7 +42,7 @@
     190801.8,
     135104.12,
     258641.52,
-    152783.47
+    174441.0
   ],
   "units": [
     8,
@@ -57,7 +57,7 @@
     37217,
     137987,
     66167,
-    15314
+    22100
   ],
   "recesa": [
     0.0,
@@ -72,7 +72,7 @@
     10115.0,
     40038.1,
     121814.7,
-    12476.0
+    32759.2
   ],
   "redelsa": [
     257.2,
@@ -87,16 +87,16 @@
     180686.8,
     95066.02,
     136826.82,
-    140307.47
+    141681.8
   ],
-  "recesaTotal": 194410.92,
-  "redelsaTotal": 1114240.99,
-  "recesaUnits": 215328,
-  "redelsaUnits": 115197,
-  "grandTotal": 1308651.91,
-  "grandUnits": 330525,
+  "recesaTotal": 214694.12,
+  "redelsaTotal": 1115615.32,
+  "recesaUnits": 220608,
+  "redelsaUnits": 116703,
+  "grandTotal": 1330309.44,
+  "grandUnits": 337311,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 318401,
+  "topCategoryUnits": 324621,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
@@ -274,11 +274,11 @@
     },
     {
       "month": "Mayo 2026",
-      "total": 152783.47,
-      "recesa": 12476.0,
-      "redelsa": 140307.47,
-      "units": 15314,
-      "daily": 4928.5,
+      "total": 174441.0,
+      "recesa": 32759.2,
+      "redelsa": 141681.8,
+      "units": 22100,
+      "daily": 5627.13,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 46359.08,
       "topUnitsProduct": "TUERCA HEX. A325 3/4",
