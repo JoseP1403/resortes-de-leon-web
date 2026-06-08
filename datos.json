@@ -12,7 +12,8 @@
     "Feb",
     "Mar",
     "Abr",
-    "May"
+    "May",
+    "Jun"
   ],
   "fullLabels": [
     "Mayo 2025",
@@ -27,7 +28,8 @@
     "Febrero 2026",
     "Marzo 2026",
     "Abril 2026",
-    "Mayo 2026"
+    "Mayo 2026",
+    "Junio 2026"
   ],
   "totals": [
     257.2,
@@ -42,7 +44,8 @@
     190801.8,
     135104.12,
     258641.52,
-    174441.0
+    174441.0,
+    46718.42
   ],
   "units": [
     8,
@@ -57,7 +60,8 @@
     37217,
     137987,
     66167,
-    22100
+    22100,
+    2001
   ],
   "recesa": [
     0.0,
@@ -72,7 +76,8 @@
     10115.0,
     40038.1,
     121814.7,
-    32759.2
+    32759.2,
+    0.0
   ],
   "redelsa": [
     257.2,
@@ -87,20 +92,21 @@
     180686.8,
     95066.02,
     136826.82,
-    141681.8
+    141681.8,
+    46718.42
   ],
   "recesaTotal": 214694.12,
-  "redelsaTotal": 1115615.32,
+  "redelsaTotal": 1162333.74,
   "recesaUnits": 220608,
-  "redelsaUnits": 116703,
-  "grandTotal": 1330309.44,
-  "grandUnits": 337311,
+  "redelsaUnits": 118704,
+  "grandTotal": 1377027.86,
+  "grandUnits": 339312,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 324621,
+  "topCategoryUnits": 324841,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 319555.44
+      "val": 345461.14
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -120,11 +126,11 @@
     },
     {
       "name": "TUERCA HEX. A325 3/4",
-      "val": 26740.2
+      "val": 26813.8
     },
     {
       "name": "TUERCA HEX. A325 5/8",
-      "val": 26609.34
+      "val": 26713.34
     }
   ],
   "details": [
@@ -283,9 +289,21 @@
       "topValueTotal": 46359.08,
       "topUnitsProduct": "TUERCA HEX. A325 3/4",
       "topUnitsQty": 2934
+    },
+    {
+      "month": "Junio 2026",
+      "total": 46718.42,
+      "recesa": 0.0,
+      "redelsa": 46718.42,
+      "units": 2001,
+      "daily": 1557.28,
+      "topValueProduct": "PERNO S/MUESTRA",
+      "topValueTotal": 25905.7,
+      "topUnitsProduct": "PERNO S/MUESTRA",
+      "topUnitsQty": 680
     }
   ],
   "bestMonth": "Abril 2026",
   "bestTotal": 258641.52,
-  "periodLabel": "Mayo 2025 – Mayo 2026"
+  "periodLabel": "Mayo 2025 – Junio 2026"
 }
