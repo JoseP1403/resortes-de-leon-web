@@ -45,7 +45,7 @@
     135104.12,
     258641.52,
     174441.0,
-    46718.42
+    76434.27
   ],
   "units": [
     8,
@@ -61,7 +61,7 @@
     137987,
     66167,
     22100,
-    2001
+    2087
   ],
   "recesa": [
     0.0,
@@ -93,14 +93,14 @@
     95066.02,
     136826.82,
     141681.8,
-    46718.42
+    76434.27
   ],
   "recesaTotal": 214694.12,
-  "redelsaTotal": 1162333.74,
+  "redelsaTotal": 1192049.59,
   "recesaUnits": 220608,
-  "redelsaUnits": 118704,
-  "grandTotal": 1377027.86,
-  "grandUnits": 339312,
+  "redelsaUnits": 118790,
+  "grandTotal": 1406743.71,
+  "grandUnits": 339398,
   "topCategory": "ROLDANA Y TORNILLERIA",
   "topCategoryUnits": 324841,
   "products": [
@@ -121,16 +121,16 @@
       "val": 30906.08
     },
     {
+      "name": "RESORTE C INTER DEL. 55-148 9HN 4X7/16 (S4000)",
+      "val": 29333.5
+    },
+    {
       "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
       "val": 28391.69
     },
     {
       "name": "TUERCA HEX. A325 3/4",
       "val": 26813.8
-    },
-    {
-      "name": "TUERCA HEX. A325 5/8",
-      "val": 26713.34
     }
   ],
   "details": [
@@ -292,11 +292,11 @@
     },
     {
       "month": "Junio 2026",
-      "total": 46718.42,
+      "total": 76434.27,
       "recesa": 0.0,
-      "redelsa": 46718.42,
-      "units": 2001,
-      "daily": 1557.28,
+      "redelsa": 76434.27,
+      "units": 2087,
+      "daily": 2547.81,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 25905.7,
       "topUnitsProduct": "PERNO S/MUESTRA",
