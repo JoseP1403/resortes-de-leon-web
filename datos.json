@@ -45,7 +45,7 @@
     135104.12,
     258641.52,
     174441.0,
-    102266.66
+    120908.19
   ],
   "units": [
     8,
@@ -61,7 +61,7 @@
     137987,
     66167,
     22100,
-    2270
+    7396
   ],
   "recesa": [
     0.0,
@@ -77,7 +77,7 @@
     40038.1,
     121814.7,
     32759.2,
-    0.0
+    5280.92
   ],
   "redelsa": [
     257.2,
@@ -93,20 +93,20 @@
     95066.02,
     136826.82,
     141681.8,
-    102266.66
+    115627.27
   ],
-  "recesaTotal": 214694.12,
-  "redelsaTotal": 1217881.98,
-  "recesaUnits": 220608,
-  "redelsaUnits": 118973,
-  "grandTotal": 1432576.1,
-  "grandUnits": 339581,
+  "recesaTotal": 219975.04,
+  "redelsaTotal": 1231242.59,
+  "recesaUnits": 224161,
+  "redelsaUnits": 120546,
+  "grandTotal": 1451217.63,
+  "grandUnits": 344707,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 324905,
+  "topCategoryUnits": 329811,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 350933.14
+      "val": 353688.74
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -125,12 +125,12 @@
       "val": 29333.5
     },
     {
-      "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
-      "val": 28391.69
+      "name": "TUERCA HEX. A325 5/8",
+      "val": 28830.84
     },
     {
-      "name": "TUERCA HEX. A325 3/4",
-      "val": 26813.8
+      "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
+      "val": 28391.69
     }
   ],
   "details": [
@@ -292,15 +292,15 @@
     },
     {
       "month": "Junio 2026",
-      "total": 102266.66,
-      "recesa": 0.0,
-      "redelsa": 102266.66,
-      "units": 2270,
-      "daily": 3408.89,
+      "total": 120908.19,
+      "recesa": 5280.92,
+      "redelsa": 115627.27,
+      "units": 7396,
+      "daily": 4030.27,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 31377.7,
-      "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 696
+      "topValueTotal": 34133.3,
+      "topUnitsProduct": "TUERCA HEX. A325 5/8",
+      "topUnitsQty": 1242
     }
   ],
   "bestMonth": "Abril 2026",
