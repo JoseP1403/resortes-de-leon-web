@@ -48,7 +48,7 @@
     258641.52,
     174441.0,
     204283.21,
-    53353.53
+    56953.11
   ],
   "units": [
     8,
@@ -65,7 +65,7 @@
     66167,
     22100,
     12746,
-    15770
+    16578
   ],
   "recesa": [
     0.0,
@@ -99,16 +99,16 @@
     136826.82,
     141681.8,
     199002.29,
-    53353.53
+    56953.11
   ],
   "recesaTotal": 219975.04,
-  "redelsaTotal": 1367971.14,
+  "redelsaTotal": 1371570.72,
   "recesaUnits": 224161,
-  "redelsaUnits": 141666,
-  "grandTotal": 1587946.18,
-  "grandUnits": 365827,
+  "redelsaUnits": 142474,
+  "grandTotal": 1591545.76,
+  "grandUnits": 366635,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 349785,
+  "topCategoryUnits": 350585,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
@@ -310,14 +310,14 @@
     },
     {
       "month": "Julio 2026",
-      "total": 53353.53,
+      "total": 56953.11,
       "recesa": 0.0,
-      "redelsa": 53353.53,
-      "units": 15770,
-      "daily": 1721.08,
+      "redelsa": 56953.11,
+      "units": 16578,
+      "daily": 1837.2,
       "topValueProduct": "TORNILLO A325 5/8 X 2\"",
       "topValueTotal": 18720.0,
-      "topUnitsProduct": "TUERCA HEX. A325 5/8",
+      "topUnitsProduct": "ROLDANA F436 5/8",
       "topUnitsQty": 4020
     }
   ],
