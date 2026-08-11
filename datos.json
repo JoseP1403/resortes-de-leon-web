@@ -14,7 +14,8 @@
     "Abr",
     "May",
     "Jun",
-    "Jul"
+    "Jul",
+    "Ago"
   ],
   "fullLabels": [
     "Mayo 2025",
@@ -31,7 +32,8 @@
     "Abril 2026",
     "Mayo 2026",
     "Junio 2026",
-    "Julio 2026"
+    "Julio 2026",
+    "Agosto 2026"
   ],
   "totals": [
     257.2,
@@ -48,7 +50,8 @@
     258641.52,
     174441.0,
     204283.21,
-    168049.97
+    165908.77,
+    49695.45
   ],
   "units": [
     8,
@@ -65,7 +68,8 @@
     66167,
     22100,
     12746,
-    26108
+    25603,
+    2646
   ],
   "recesa": [
     0.0,
@@ -82,7 +86,8 @@
     121814.7,
     32759.2,
     5280.92,
-    2141.2
+    0.0,
+    2398.14
   ],
   "redelsa": [
     257.2,
@@ -99,20 +104,21 @@
     136826.82,
     141681.8,
     199002.29,
-    165908.77
+    165908.77,
+    47297.31
   ],
-  "recesaTotal": 222116.24,
-  "redelsaTotal": 1480526.38,
+  "recesaTotal": 222373.18,
+  "redelsaTotal": 1527823.69,
   "recesaUnits": 224666,
-  "redelsaUnits": 151499,
-  "grandTotal": 1702642.62,
-  "grandUnits": 376165,
+  "redelsaUnits": 153640,
+  "grandTotal": 1750196.87,
+  "grandUnits": 378306,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 358655,
+  "topCategoryUnits": 359825,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 475025.15
+      "val": 505527.99
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -128,15 +134,15 @@
     },
     {
       "name": "TUERCA HEX. A325 5/8",
-      "val": 34745.84
+      "val": 35148.34
+    },
+    {
+      "name": "RESORTE C INTER DEL. 55-148 9HN 4X7/16 (S4000)",
+      "val": 33333.5
     },
     {
       "name": "TUERCA HEX. A325 1\"",
-      "val": 31559.89
-    },
-    {
-      "name": "TORNILLO LAMINA 14 X 1 1/2",
-      "val": 30939.6
+      "val": 31670.29
     }
   ],
   "details": [
@@ -310,18 +316,30 @@
     },
     {
       "month": "Julio 2026",
-      "total": 168049.97,
-      "recesa": 2141.2,
+      "total": 165908.77,
+      "recesa": 0.0,
       "redelsa": 165908.77,
-      "units": 26108,
-      "daily": 5420.97,
+      "units": 25603,
+      "daily": 5351.9,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 71076.57,
       "topUnitsProduct": "TUERCA HEX. A325 5/8",
       "topUnitsQty": 4238
+    },
+    {
+      "month": "Agosto 2026",
+      "total": 49695.45,
+      "recesa": 2398.14,
+      "redelsa": 47297.31,
+      "units": 2646,
+      "daily": 1603.08,
+      "topValueProduct": "PERNO S/MUESTRA",
+      "topValueTotal": 30502.84,
+      "topUnitsProduct": "PERNO S/MUESTRA",
+      "topUnitsQty": 893
     }
   ],
   "bestMonth": "Abril 2026",
   "bestTotal": 258641.52,
-  "periodLabel": "Mayo 2025 – Julio 2026"
+  "periodLabel": "Mayo 2025 – Agosto 2026"
 }
