@@ -51,7 +51,7 @@
     174441.0,
     204283.21,
     165908.77,
-    98351.82
+    125495.84
   ],
   "units": [
     8,
@@ -69,7 +69,7 @@
     22100,
     12746,
     25603,
-    9194
+    10480
   ],
   "recesa": [
     0.0,
@@ -87,7 +87,7 @@
     32759.2,
     5280.92,
     0.0,
-    2398.14
+    20893.14
   ],
   "redelsa": [
     257.2,
@@ -105,20 +105,20 @@
     141681.8,
     199002.29,
     165908.77,
-    95953.68
+    104602.7
   ],
-  "recesaTotal": 222373.18,
-  "redelsaTotal": 1576480.06,
-  "recesaUnits": 224666,
-  "redelsaUnits": 160188,
-  "grandTotal": 1798853.24,
-  "grandUnits": 384854,
+  "recesaTotal": 240868.18,
+  "redelsaTotal": 1585129.08,
+  "recesaUnits": 225016,
+  "redelsaUnits": 161124,
+  "grandTotal": 1825997.26,
+  "grandUnits": 386140,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 365077,
+  "topCategoryUnits": 366257,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 534627.59
+      "val": 549567.59
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -126,7 +126,7 @@
     },
     {
       "name": "TORNILLO A325 5/8 X 2\"",
-      "val": 40674.8
+      "val": 41102.0
     },
     {
       "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
@@ -134,7 +134,7 @@
     },
     {
       "name": "TUERCA HEX. A325 5/8",
-      "val": 35344.34
+      "val": 35484.34
     },
     {
       "name": "RESORTE C INTER DEL. 55-148 9HN 4X7/16 (S4000)",
@@ -328,15 +328,15 @@
     },
     {
       "month": "Agosto 2026",
-      "total": 98351.82,
-      "recesa": 2398.14,
-      "redelsa": 95953.68,
-      "units": 9194,
-      "daily": 3172.64,
+      "total": 125495.84,
+      "recesa": 20893.14,
+      "redelsa": 104602.7,
+      "units": 10480,
+      "daily": 4048.25,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 59602.44,
+      "topValueTotal": 74542.44,
       "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 2135
+      "topUnitsQty": 2185
     }
   ],
   "bestMonth": "Abril 2026",
