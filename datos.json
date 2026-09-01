@@ -51,7 +51,7 @@
     174441.0,
     204283.21,
     165908.77,
-    138031.22
+    157486.71
   ],
   "units": [
     8,
@@ -69,7 +69,7 @@
     22100,
     12746,
     25603,
-    10915
+    15008
   ],
   "recesa": [
     0.0,
@@ -105,20 +105,20 @@
     141681.8,
     199002.29,
     165908.77,
-    117138.08
+    136593.57
   ],
   "recesaTotal": 240868.18,
-  "redelsaTotal": 1597664.46,
+  "redelsaTotal": 1617119.95,
   "recesaUnits": 225016,
-  "redelsaUnits": 161559,
-  "grandTotal": 1838532.64,
-  "grandUnits": 386575,
+  "redelsaUnits": 165652,
+  "grandTotal": 1857988.13,
+  "grandUnits": 390668,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 366509,
+  "topCategoryUnits": 370279,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 558205.31
+      "val": 569385.95
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -328,15 +328,15 @@
     },
     {
       "month": "Agosto 2026",
-      "total": 138031.22,
+      "total": 157486.71,
       "recesa": 20893.14,
-      "redelsa": 117138.08,
-      "units": 10915,
-      "daily": 4452.62,
+      "redelsa": 136593.57,
+      "units": 15008,
+      "daily": 5080.22,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 83180.16,
+      "topValueTotal": 94360.8,
       "topUnitsProduct": "PERNO S/MUESTRA",
-      "topUnitsQty": 2349
+      "topUnitsQty": 2641
     }
   ],
   "bestMonth": "Abril 2026",
