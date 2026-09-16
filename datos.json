@@ -15,7 +15,8 @@
     "May",
     "Jun",
     "Jul",
-    "Ago"
+    "Ago",
+    "Sep"
   ],
   "fullLabels": [
     "Mayo 2025",
@@ -33,7 +34,8 @@
     "Mayo 2026",
     "Junio 2026",
     "Julio 2026",
-    "Agosto 2026"
+    "Agosto 2026",
+    "Septiembre 2026"
   ],
   "totals": [
     257.2,
@@ -51,7 +53,8 @@
     174441.0,
     204283.21,
     165908.77,
-    157486.71
+    157486.71,
+    55781.69
   ],
   "units": [
     8,
@@ -69,7 +72,8 @@
     22100,
     12746,
     25603,
-    15008
+    15008,
+    3502
   ],
   "recesa": [
     0.0,
@@ -87,7 +91,8 @@
     32759.2,
     5280.92,
     0.0,
-    20893.14
+    20893.14,
+    1675.25
   ],
   "redelsa": [
     257.2,
@@ -105,20 +110,21 @@
     141681.8,
     199002.29,
     165908.77,
-    136593.57
+    136593.57,
+    54106.44
   ],
-  "recesaTotal": 240868.18,
-  "redelsaTotal": 1617119.95,
-  "recesaUnits": 225016,
-  "redelsaUnits": 165652,
-  "grandTotal": 1857988.13,
-  "grandUnits": 390668,
+  "recesaTotal": 242543.43,
+  "redelsaTotal": 1671226.39,
+  "recesaUnits": 225181,
+  "redelsaUnits": 168989,
+  "grandTotal": 1913769.82,
+  "grandUnits": 394170,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 370279,
+  "topCategoryUnits": 373093,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 569385.95
+      "val": 593355.34
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -134,15 +140,15 @@
     },
     {
       "name": "TUERCA HEX. A325 5/8",
-      "val": 35484.34
+      "val": 36022.1
+    },
+    {
+      "name": "TUERCA HEX. A325 1\"",
+      "val": 33525.29
     },
     {
       "name": "RESORTE C INTER DEL. 55-148 9HN 4X7/16 (S4000)",
       "val": 33333.5
-    },
-    {
-      "name": "TUERCA HEX. A325 1\"",
-      "val": 32259.09
     }
   ],
   "details": [
@@ -337,9 +343,21 @@
       "topValueTotal": 94360.8,
       "topUnitsProduct": "PERNO S/MUESTRA",
       "topUnitsQty": 2641
+    },
+    {
+      "month": "Septiembre 2026",
+      "total": 55781.69,
+      "recesa": 1675.25,
+      "redelsa": 54106.44,
+      "units": 3502,
+      "daily": 1859.39,
+      "topValueProduct": "PERNO S/MUESTRA",
+      "topValueTotal": 23969.39,
+      "topUnitsProduct": "PERNO S/MUESTRA",
+      "topUnitsQty": 599
     }
   ],
   "bestMonth": "Abril 2026",
   "bestTotal": 258641.52,
-  "periodLabel": "Mayo 2025 – Agosto 2026"
+  "periodLabel": "Mayo 2025 – Septiembre 2026"
 }
