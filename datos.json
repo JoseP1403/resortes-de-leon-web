@@ -54,7 +54,7 @@
     204283.21,
     165908.77,
     157486.71,
-    138346.86
+    155687.74
   ],
   "units": [
     8,
@@ -73,7 +73,7 @@
     12746,
     25603,
     15008,
-    9545
+    10019
   ],
   "recesa": [
     0.0,
@@ -92,7 +92,7 @@
     5280.92,
     0.0,
     20893.14,
-    1675.25
+    5829.4
   ],
   "redelsa": [
     257.2,
@@ -111,20 +111,20 @@
     199002.29,
     165908.77,
     136593.57,
-    136671.61
+    149858.34
   ],
-  "recesaTotal": 242543.43,
-  "redelsaTotal": 1753791.56,
-  "recesaUnits": 225181,
-  "redelsaUnits": 175032,
-  "grandTotal": 1996334.99,
-  "grandUnits": 400213,
+  "recesaTotal": 246697.58,
+  "redelsaTotal": 1766978.29,
+  "recesaUnits": 225183,
+  "redelsaUnits": 175504,
+  "grandTotal": 2013675.87,
+  "grandUnits": 400687,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 378283,
+  "topCategoryUnits": 378623,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 638744.06
+      "val": 648643.18
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -140,7 +140,7 @@
     },
     {
       "name": "TUERCA HEX. A325 5/8",
-      "val": 36078.1
+      "val": 36092.1
     },
     {
       "name": "TUERCA HEX. A325 3/4",
@@ -148,7 +148,7 @@
     },
     {
       "name": "TUERCA HEX. A325 1\"",
-      "val": 33525.29
+      "val": 34518.89
     }
   ],
   "details": [
@@ -346,13 +346,13 @@
     },
     {
       "month": "Septiembre 2026",
-      "total": 138346.86,
-      "recesa": 1675.25,
-      "redelsa": 136671.61,
-      "units": 9545,
-      "daily": 4611.56,
+      "total": 155687.74,
+      "recesa": 5829.4,
+      "redelsa": 149858.34,
+      "units": 10019,
+      "daily": 5189.59,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 69358.11,
+      "topValueTotal": 79257.23,
       "topUnitsProduct": "TORNILLO NELSON STUD 5/8 X 4 3/16",
       "topUnitsQty": 2850
     }
