@@ -54,7 +54,7 @@
     204283.21,
     165908.77,
     157486.71,
-    155687.74
+    210956.89
   ],
   "units": [
     8,
@@ -73,7 +73,7 @@
     12746,
     25603,
     15008,
-    10019
+    19365
   ],
   "recesa": [
     0.0,
@@ -111,20 +111,20 @@
     199002.29,
     165908.77,
     136593.57,
-    149858.34
+    205127.49
   ],
   "recesaTotal": 246697.58,
-  "redelsaTotal": 1766978.29,
+  "redelsaTotal": 1822247.44,
   "recesaUnits": 225183,
-  "redelsaUnits": 175504,
-  "grandTotal": 2013675.87,
-  "grandUnits": 400687,
+  "redelsaUnits": 184850,
+  "grandTotal": 2068945.02,
+  "grandUnits": 410033,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 378623,
+  "topCategoryUnits": 387603,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 648643.18
+      "val": 684001.18
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -135,20 +135,20 @@
       "val": 41102.0
     },
     {
+      "name": "TUERCA HEX. A325 5/8",
+      "val": 39775.5
+    },
+    {
       "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
       "val": 36716.96
     },
     {
-      "name": "TUERCA HEX. A325 5/8",
-      "val": 36092.1
+      "name": "TUERCA HEX. A325 1\"",
+      "val": 35107.69
     },
     {
       "name": "TUERCA HEX. A325 3/4",
-      "val": 34714.78
-    },
-    {
-      "name": "TUERCA HEX. A325 1\"",
-      "val": 34518.89
+      "val": 35009.18
     }
   ],
   "details": [
@@ -346,15 +346,15 @@
     },
     {
       "month": "Septiembre 2026",
-      "total": 155687.74,
+      "total": 210956.89,
       "recesa": 5829.4,
-      "redelsa": 149858.34,
-      "units": 10019,
-      "daily": 5189.59,
+      "redelsa": 205127.49,
+      "units": 19365,
+      "daily": 7031.9,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 79257.23,
-      "topUnitsProduct": "TORNILLO NELSON STUD 5/8 X 4 3/16",
-      "topUnitsQty": 2850
+      "topValueTotal": 114615.23,
+      "topUnitsProduct": "TUERCA HEX. A325 5/8",
+      "topUnitsQty": 3192
     }
   ],
   "bestMonth": "Abril 2026",
