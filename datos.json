@@ -54,7 +54,7 @@
     204283.21,
     165908.77,
     157486.71,
-    210956.89
+    240691.75
   ],
   "units": [
     8,
@@ -73,7 +73,7 @@
     12746,
     25603,
     15008,
-    19365
+    20174
   ],
   "recesa": [
     0.0,
@@ -111,20 +111,20 @@
     199002.29,
     165908.77,
     136593.57,
-    205127.49
+    234862.35
   ],
   "recesaTotal": 246697.58,
-  "redelsaTotal": 1822247.44,
+  "redelsaTotal": 1851982.3,
   "recesaUnits": 225183,
-  "redelsaUnits": 184850,
-  "grandTotal": 2068945.02,
-  "grandUnits": 410033,
+  "redelsaUnits": 185659,
+  "grandTotal": 2098679.88,
+  "grandUnits": 410842,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 387603,
+  "topCategoryUnits": 388203,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 684001.18
+      "val": 709881.18
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -139,12 +139,12 @@
       "val": 39775.5
     },
     {
-      "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
-      "val": 36716.96
+      "name": "TUERCA HEX. A325 1\"",
+      "val": 36947.69
     },
     {
-      "name": "TUERCA HEX. A325 1\"",
-      "val": 35107.69
+      "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
+      "val": 36716.96
     },
     {
       "name": "TUERCA HEX. A325 3/4",
@@ -346,13 +346,13 @@
     },
     {
       "month": "Septiembre 2026",
-      "total": 210956.89,
+      "total": 240691.75,
       "recesa": 5829.4,
-      "redelsa": 205127.49,
-      "units": 19365,
-      "daily": 7031.9,
+      "redelsa": 234862.35,
+      "units": 20174,
+      "daily": 8023.06,
       "topValueProduct": "PERNO S/MUESTRA",
-      "topValueTotal": 114615.23,
+      "topValueTotal": 140495.23,
       "topUnitsProduct": "TUERCA HEX. A325 5/8",
       "topUnitsQty": 3192
     }
