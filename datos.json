@@ -16,7 +16,8 @@
     "Jun",
     "Jul",
     "Ago",
-    "Sep"
+    "Sep",
+    "Oct"
   ],
   "fullLabels": [
     "Mayo 2025",
@@ -35,7 +36,8 @@
     "Junio 2026",
     "Julio 2026",
     "Agosto 2026",
-    "Septiembre 2026"
+    "Septiembre 2026",
+    "Octubre 2026"
   ],
   "totals": [
     257.2,
@@ -54,7 +56,8 @@
     204283.21,
     165908.77,
     157486.71,
-    240691.75
+    240691.75,
+    33089.66
   ],
   "units": [
     8,
@@ -73,7 +76,8 @@
     12746,
     25603,
     15008,
-    20174
+    20174,
+    93
   ],
   "recesa": [
     0.0,
@@ -92,7 +96,8 @@
     5280.92,
     0.0,
     20893.14,
-    5829.4
+    5829.4,
+    0.0
   ],
   "redelsa": [
     257.2,
@@ -111,20 +116,21 @@
     199002.29,
     165908.77,
     136593.57,
-    234862.35
+    234862.35,
+    33089.66
   ],
   "recesaTotal": 246697.58,
-  "redelsaTotal": 1851982.3,
+  "redelsaTotal": 1885071.96,
   "recesaUnits": 225183,
-  "redelsaUnits": 185659,
-  "grandTotal": 2098679.88,
-  "grandUnits": 410842,
+  "redelsaUnits": 185752,
+  "grandTotal": 2131769.54,
+  "grandUnits": 410935,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 388203,
+  "topCategoryUnits": 388235,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 709881.18
+      "val": 710253.78
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
@@ -355,9 +361,21 @@
       "topValueTotal": 140495.23,
       "topUnitsProduct": "TUERCA HEX. A325 5/8",
       "topUnitsQty": 3192
+    },
+    {
+      "month": "Octubre 2026",
+      "total": 33089.66,
+      "recesa": 0.0,
+      "redelsa": 33089.66,
+      "units": 93,
+      "daily": 1067.41,
+      "topValueProduct": "RESORTE C TRA-3319 9HN",
+      "topValueTotal": 13947.18,
+      "topUnitsProduct": "PLATINA SEGUN MUESTRA",
+      "topUnitsQty": 18
     }
   ],
   "bestMonth": "Abril 2026",
   "bestTotal": 258641.52,
-  "periodLabel": "Mayo 2025 – Septiembre 2026"
+  "periodLabel": "Mayo 2025 – Octubre 2026"
 }
