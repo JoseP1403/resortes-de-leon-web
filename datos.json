@@ -17,7 +17,8 @@
     "Jul",
     "Ago",
     "Sep",
-    "Oct"
+    "Oct",
+    "Nov"
   ],
   "fullLabels": [
     "Mayo 2025",
@@ -37,7 +38,8 @@
     "Julio 2026",
     "Agosto 2026",
     "Septiembre 2026",
-    "Octubre 2026"
+    "Octubre 2026",
+    "Noviembre 2026"
   ],
   "totals": [
     257.2,
@@ -57,7 +59,8 @@
     165908.77,
     157486.71,
     240691.75,
-    291393.56
+    291323.56,
+    23740.74
   ],
   "units": [
     8,
@@ -77,7 +80,8 @@
     25603,
     15008,
     20174,
-    14386
+    14346,
+    2267
   ],
   "recesa": [
     0.0,
@@ -97,7 +101,8 @@
     0.0,
     20893.14,
     5829.4,
-    2200.5
+    2200.5,
+    7438.0
   ],
   "redelsa": [
     257.2,
@@ -117,32 +122,33 @@
     165908.77,
     136593.57,
     234862.35,
-    289193.06
+    289123.06,
+    16302.74
   ],
-  "recesaTotal": 248898.08,
-  "redelsaTotal": 2141175.36,
-  "recesaUnits": 225593,
-  "redelsaUnits": 199635,
-  "grandTotal": 2390073.44,
-  "grandUnits": 425228,
+  "recesaTotal": 256336.08,
+  "redelsaTotal": 2157408.1,
+  "recesaUnits": 226393,
+  "redelsaUnits": 201062,
+  "grandTotal": 2413744.18,
+  "grandUnits": 427455,
   "topCategory": "ROLDANA Y TORNILLERIA",
-  "topCategoryUnits": 398073,
+  "topCategoryUnits": 400005,
   "products": [
     {
       "name": "PERNO S/MUESTRA",
-      "val": 877706.54
+      "val": 885853.78
     },
     {
       "name": "BARRA LISA F1554/GR55 25MM X 3.55 MTS",
       "val": 45865.17
     },
     {
-      "name": "TORNILLO A325 5/8 X 2\"",
-      "val": 41102.0
+      "name": "TUERCA HEX. A325 5/8",
+      "val": 41431.0
     },
     {
-      "name": "TUERCA HEX. A325 5/8",
-      "val": 41081.0
+      "name": "TORNILLO A325 5/8 X 2\"",
+      "val": 41102.0
     },
     {
       "name": "TUERCA HEX. A325 1\"",
@@ -150,7 +156,7 @@
     },
     {
       "name": "TUERCA HEX. A325 3/4",
-      "val": 37544.7
+      "val": 38611.9
     },
     {
       "name": "TOYOTA HILUX MOD TRA 3a 20X28 REFUERZO",
@@ -364,18 +370,30 @@
     },
     {
       "month": "Octubre 2026",
-      "total": 291393.56,
+      "total": 291323.56,
       "recesa": 2200.5,
-      "redelsa": 289193.06,
-      "units": 14386,
-      "daily": 9399.79,
+      "redelsa": 289123.06,
+      "units": 14346,
+      "daily": 9397.53,
       "topValueProduct": "PERNO S/MUESTRA",
       "topValueTotal": 167825.36,
       "topUnitsProduct": "PERNO S/MUESTRA",
       "topUnitsQty": 3964
+    },
+    {
+      "month": "Noviembre 2026",
+      "total": 23740.74,
+      "recesa": 7438.0,
+      "redelsa": 16302.74,
+      "units": 2267,
+      "daily": 791.36,
+      "topValueProduct": "PERNO S/MUESTRA",
+      "topValueTotal": 8147.24,
+      "topUnitsProduct": "ROLDANA F436 3/4",
+      "topUnitsQty": 490
     }
   ],
   "bestMonth": "Octubre 2026",
-  "bestTotal": 291393.56,
-  "periodLabel": "Mayo 2025 – Octubre 2026"
+  "bestTotal": 291323.56,
+  "periodLabel": "Mayo 2025 – Noviembre 2026"
 }
